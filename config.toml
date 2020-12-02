@@ -1,6 +1,6 @@
 # For a description of these parameters, please visit the theme wiki.
 # https://github.com/pacollins/hugo-future-imperfect-slim/wiki/config.toml
-baseurl                 = "https://s001-kawamura.github.io/blog/"
+baseurl                 = "https://shukawam.github.io/blog/"
 DefaultContentLanguage  = "ja"
 title                   = "Kawash's Daily Blog"
 theme                   = "hugo-future-imperfect-slim"
@@ -88,7 +88,7 @@ publishDir = "docs"
   [[menu.main]]
     name              = "Home"
     identifier        = "home"
-    url               = "https://s001-kawamura.github.io/blog/"
+    url               = "https://shukawam.github.io/blog/"
     pre               = "<i class='fa fa-home'></i>"
     weight            = 1
 
@@ -96,21 +96,21 @@ publishDir = "docs"
   # [[menu.main]]
   #  name              = "About"
   #  identifier        = "about"
-  #  url               = "https://s001-kawamura.github.io/blog/about/"
+  #  url               = "https://shukawam.github.io/blog/about/"
   #  pre               = "<i class='far fa-id-card'></i>"
   #  weight            = 2
 
   [[menu.main]]
     name              = "Blog"
     identifier        = "blog"
-    url               = "https://s001-kawamura.github.io/blog/blog/"
+    url               = "https://shukawam.github.io/blog/blog/"
     pre               = "<i class='far fa-newspaper'></i>"
     weight            = 3
 
   # [[menu.main]]
   #  name              = "Categories"
   #  identifier        = "categories"
-  #  url               = "https://s001-kawamura.github.io/blog/categories/"
+  #  url               = "https://shukawam.github.io/blog/categories/"
   #  pre               = "<i class='fas fa-sitemap'></i>"
   #  weight            = 5
 
@@ -126,7 +126,7 @@ publishDir = "docs"
 
 [social]
   # Coding Communities
-  github                = "s001-kawamura"
+  github                = "shukawam"
   gitlab                = "s.kawamura"
   stackoverflow         = "" # User Number
   bitbucket             = ""
