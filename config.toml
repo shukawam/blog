@@ -2,7 +2,7 @@
 # https://github.com/pacollins/hugo-future-imperfect-slim/wiki/config.toml
 baseurl                 = "https://shukawam.github.io/blog/"
 DefaultContentLanguage  = "ja"
-title                   = "Kawash's Daily Blog"
+title                   = "Shukawam's Daily Blog"
 theme                   = "hugo-future-imperfect-slim"
 paginate                = 3
 disqusShortname         = ""
@@ -32,7 +32,7 @@ publishDir = "docs"
   hideEmptyStats        = false
 
   [params.meta]
-    description         = "Kawash's Daily Blog."
+    description         = "Shukawam's Daily Blog."
     author              = "Shuhei, Kawamura"
     favicon             = false
     svg                 = true
@@ -41,7 +41,7 @@ publishDir = "docs"
     iOSColor            = "#ffffff"
 
   [params.header]
-    navbarTitle         = "Kawash's Daily Blog"
+    navbarTitle         = "Shukawam's Daily Blog"
     dynamicTitles       = true
     searchMenu          = true
     shareMenu           = true
@@ -49,7 +49,7 @@ publishDir = "docs"
 
   [params.intro]
     header                = "Shuhei, Kawamura"
-    paragraph             = "Interested in Serverless, IaC, Microservices."
+    paragraph             = "Worked at Oracle Japan. Interested in container native, serverless and other cloud native technologies."
     rssIntro              = true
     socialIntro           = true
     hideWhenSingleColumn  = false
@@ -159,7 +159,7 @@ publishDir = "docs"
     qq                  = "" # User ID Number
   instagram             = ""
   tumblr                = ""
-  twitter               = "_shu_kawa"
+  twitter               = "shukawam"
   strava                = ""
   skype                 = ""
   snapchat              = ""
