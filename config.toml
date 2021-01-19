@@ -28,7 +28,7 @@ publishDir = "docs"
   readingTime           = true
   imageStretch          = ""
   removeBlur            = false
-  socialShare           = ["twitter", "facebook", "reddit", "linkedin", "pinterest", "email"]
+  socialShare           = ["twitter", "facebook", "linkedin"]
   hideEmptyStats        = false
 
   [params.meta]
@@ -49,8 +49,8 @@ publishDir = "docs"
 
   [params.intro]
     header                = "Shuhei, Kawamura"
-    paragraph             = "Worked at Oracle Japan. Interested in container native, serverless and other cloud native technologies."
-    rssIntro              = true
+    paragraph             = "Solutions Engineer at @Oracle_Japan. Like music, snowboarding and cooking. All my opinions are my own."
+    rssIntro              = false
     socialIntro           = true
     hideWhenSingleColumn  = false
     alwaysOnHomepage      = false
@@ -127,7 +127,7 @@ publishDir = "docs"
 [social]
   # Coding Communities
   github                = "shukawam"
-  gitlab                = "s.kawamura"
+  # gitlab                = "s.kawamura"
   stackoverflow         = "" # User Number
   bitbucket             = ""
   jsfiddle              = ""
@@ -172,4 +172,4 @@ publishDir = "docs"
   keybase               = ""
   mastodon              = ""
   # Email
-  email                 = "s001.kawamura@gmail.com"
+  # email                 = "s001.kawamura@gmail.com"
