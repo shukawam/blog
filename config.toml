@@ -34,7 +34,7 @@ publishDir = "docs"
   [params.meta]
     description         = "Shukawam's Daily Blog."
     author              = "Shuhei, Kawamura"
-    favicon             = false
+    favicon             = true
     svg                 = true
     faviconVersion      = "1"
     msColor             = "#ffffff"
@@ -68,7 +68,7 @@ publishDir = "docs"
     categoriesByCount   = true
 
   [params.footer]
-    rssFooter           = true
+    rssFooter           = false
     socialFooter        = true
 
   [params.staticman]
@@ -115,10 +115,10 @@ publishDir = "docs"
   #  weight            = 5
 
 [Languages]
-  [Languages.en]
-    LanguageCode        = "en"
-    LanguageName        = "English"
-    weight              = 1
+  # [Languages.en]
+  #  LanguageCode        = "en"
+  #  LanguageName        = "English"
+  #  weight              = 1
   [Languages.ja]
     LanguageCode        = "ja"
     LanguageName        = "日本語"
