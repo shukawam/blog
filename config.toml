@@ -73,11 +73,11 @@ publishDir = "docs"
 
   [params.staticman]
     enabled             = true
-    api                 = ""  # No Trailing Slash
-    gitProvider         = ""
-    username            = ""
-    repo                = ""
-    branch              = ""
+    api                 = "https://staticman3.herokuapp.com"  # No Trailing Slash
+    gitProvider         = "github"
+    username            = "shukawam"
+    repo                = "blog"
+    branch              = "master"
 
     [params.staticman.recaptcha]
       siteKey           = ""
