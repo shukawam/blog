@@ -5,7 +5,7 @@ author = "Shuhei, Kawamura"
 date = "2021-01-21"
 tags = ["hugo", "staticman"]
 categories = ["tech"]
-draft = "false"
+draft = "true"
 [[images]]
   src = "img/2020/0909/hugo.png"
   alt = "hugo.png"
