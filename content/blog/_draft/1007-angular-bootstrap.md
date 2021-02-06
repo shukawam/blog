@@ -5,7 +5,7 @@ author = "Shuhei, Kawamura"
 date = "2020-10-07"
 tags = ["Angular", "Bootstrap"]
 categories = ["tech"]
-draft = "false"
+draft = "true"
 [[images]]
   src = "img/2020/1007/main.png"
   alt = "main"
