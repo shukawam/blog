@@ -56,7 +56,7 @@ publishDir = "docs"
     alwaysOnHomepage      = false
 
     [params.intro.pic]
-      src                 = "img/main/icon.jpg"
+      src                 = "img/main/icon.JPG"
       shape               = "circle"
       width               = ""
       alt                 = "Shuhei, Kawamura"
