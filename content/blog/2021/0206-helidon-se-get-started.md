@@ -1,11 +1,10 @@
 +++
 title = "Helidon SE Get Started"
-description = ""
 author = "Shuhei, Kawamura"
-date = "2021-02-06"
-tags = ["java", "helidon"]
+date = "2021-02-07"
+tags = ["java", "helidon", "helidon se"]
 categories = ["tech"]
-draft = "true"
+draft = "false"
 [[images]]
   src = "img/2021/0206/helidon.jpg"
   alt = ""
@@ -32,11 +31,11 @@ Java の軽量フレームワークの一つである [Helidon](https://helidon.
 
 ## Helidon CLI を使う
 
-アプリケーションのひな型生成や開発モード（ソースコードの変更を再度ビルドする必要なく即時反映してくれる仕組み）をサポートしている便利ツールです。2021/02/06 現在、Windows はまだ CLI の配布がされていないため、WSL2 で Ubuntu を使うなどのひと工夫が必要です。
+アプリケーションのひな型生成や開発モード（ソースコードの変更を再度ビルドする必要なく即時反映してくれる仕組み）をサポートしている便利ツールです。2021/02/06 現在、Windows はまだ CLI の配布がされていないため、ローカルで CLI を使用したい場合は、WSL2 で Ubuntu を使うなどのひと工夫が必要です。
 
 インストール自体は、非常に簡単でバイナリをダウンロードしてパスが通っているところにインストールするだけで大丈夫です。
 
-```
+```bash
 $ curl -O https://helidon.io/cli/latest/linux/helidon
 $ chmod +x ./helidon
 $ sudo mv ./helidon /usr/local/bin/
@@ -44,7 +43,7 @@ $ sudo mv ./helidon /usr/local/bin/
 
 とりあえず、どんなことができるかを見ておきます。
 
-```
+```bash
 $ helidon --help
 
 Usage:  helidon [OPTIONS] COMMAND
@@ -84,7 +83,7 @@ Run 'helidon COMMAND --help' for more information on a command.
 
 では、さっそくアプリケーションを作ってみたいと思います。まずは、ミニマルな構成で作成し、今後検証したコンポーネントを随時追加していきたいと思います。
 
-```
+```bash
 $ helidon init --flavor SE --build MAVEN --archetype bare --groupid shukawam.examples --package shukawam.examples.helidon.se --name helidon-se-examples
 Using Helidon version 2.2.0
 Helidon flavor
@@ -108,7 +107,7 @@ Start development loop? (Default: n):
 
 Helidon CLI で生成されたアプリケーションを少し見てみると、以下の様になっています。
 
-```
+```bash
 $ cd helidon-se-examples
 $ tree
 .
@@ -143,7 +142,7 @@ $ tree
 
 開発モードで起動してみます。
 
-```
+```bash
 $ helidon dev
 helidon dev
 
@@ -174,7 +173,7 @@ System.out.println(
 
 **Dockerfile.native**
 
-```
+```docker
 # 1st stage, build the app
 FROM helidon/jdk11-graalvm-maven:20.2.0 as build
 
@@ -207,13 +206,13 @@ EXPOSE 8080
 
 Native Image を生成します。(手元の環境に GraalVM のランタイムが入っている場合は、`Helidon build --mode NATIVE`で Native Image のビルドができます。)
 
-```
+```bash
 $ docker build -t shukawam/helidon-se-native-image:v1.0 -f Dockerfile.native .
 ```
 
 起動してみます。
 
-```
+```bash
 $ docker run -p 8080:8080 shukawam/helidon-se-native-image:v1.0
 02021.02.06 15:13:23 INFO io.helidon.common.LogConfig Thread[main,5,main]: Logging at runtime configured using classpath: /logging.properties
 2021.02.06 15:13:23 INFO io.helidon.common.HelidonFeatures Thread[features-thread,5,main]: Helidon SE 2.2.0 features: [Config, Health, Metrics, WebServer]
@@ -221,9 +220,11 @@ $ docker run -p 8080:8080 shukawam/helidon-se-native-image:v1.0
 WEB server is up! http://localhost:8080 in 18 milliseconds (since JVM startup).
 ```
 
-さすがに、起動は桁違いに速いです。
+18ms...さすがに、起動は桁違いに速いです。
 
 ちなみに、自動生成された`pom.xml`内の依存関係は以下の様になっていました。
+
+`pom.xml`
 
 ```xml
 <dependencies>
@@ -266,7 +267,7 @@ WEB server is up! http://localhost:8080 in 18 milliseconds (since JVM startup).
 
 マイクロサービスの実装に必要不可欠な Metrics, Health Check, Config といったライブラリは、既に含まれているので特に設定することなく、Metrics や Health Check のエンドポイントを利用可能になっています。
 
-```
+```bash
 # Health Check
 $ curl http://localhost:8080/health
 {"outcome":"UP","status":"UP","checks":[{"name":"deadlock","state":"UP","status":"UP"},{"name":"diskSpace","state":"UP","status":"UP","data":{"free":"228.23 GB","freeBytes":245060718592,"percentFree":"90.93%","total":"250.98 GB","totalBytes":269490393088}},{"name":"heapMemory","state":"UP","status":"UP","data":{"free":"68.51 MB","freeBytes":71841744,"max":"1.54 GB","maxBytes":1648361472,"percentFree":"97.87%","total":"102.00 MB","totalBytes":106954752}}]}
@@ -278,11 +279,11 @@ $ curl http://localhost:8080/metrics --header 'Accept:application/json'
 
 ## Maven を使う
 
-以下、Maven, Gradle を使う場合は参考程度に載せておきます。
+以下、Maven, Gradle を使う場合についても参考程度に載せておきます。
 
 プロジェクトを生成します。
 
-```
+```bash
 $ mvn -U archetype:generate -DinteractiveMode=false \
     -DarchetypeGroupId=io.helidon.archetypes \
     -DarchetypeArtifactId=helidon-quickstart-se \
@@ -292,11 +293,149 @@ $ mvn -U archetype:generate -DinteractiveMode=false \
     -Dpackage=io.helidon.examples.quickstart.se
 ```
 
+中身を覗いてみると以下のようになっています。
 
+```bash
+$ tree
+.
+├── Dockerfile # 実行可能JARを生成するDockerfile
+├── Dockerfile.jlink # jlinkを使用してビルドするDockerfile
+├── Dockerfile.native # Native Imageを生成するDockerfile
+├── README.md
+├── app.yaml # Kubernetesのマニフェストファイル
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── io
+    │   │       └── helidon
+    │   │           └── examples
+    │   │               └── quickstart
+    │   │                   └── se
+    │   │                       ├── GreetService.java
+    │   │                       ├── Main.java
+    │   │                       └── package-info.java
+    │   └── resources
+    │       ├── META-INF
+    │       │   └── native-image
+    │       │       └── reflect-config.json
+    │       ├── application.yaml
+    │       └── logging.properties
+    └── test
+        └── java
+            └── io
+                └── helidon
+                    └── examples
+                        └── quickstart
+                            └── se
+                                └── MainTest.java
+
+18 directories, 13 files
+```
+
+CLI から生成した時には、Kubernetes のマニフェストファイルや各種 Dockerfile は生成されなかったですが、これは便利そうですね。残りは、全て CLI から生成した場合と同じでした。
 
 ## Gradle を使う
 
+Helidon のサンプルはほとんどが Maven を使用していますが、Gradle も同様に使用することができます。(推奨は、Gradle 6+)Gradle を使用してビルドしたい場合は、[Helidon SE の QuickStart](https://github.com/oracle/helidon/tree/2.2.0/examples/quickstarts/helidon-quickstart-se)に含まれる`build.gradle`を参考にするとよいです。
+
+`build.gradle`
+
+```gradle
+/*
+ * Copyright (c) 2018, 2020 Oracle and/or its affiliates. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+apply plugin: 'java'
+
+group = 'io.helidon.examples' // 自分のアプリケーションに合わせて修正する
+version = '1.0-SNAPSHOT'
+
+description = "helidon-quickstart-se" // 自分のアプリケーションに合わせて修正する
+
+sourceCompatibility = 11
+targetCompatibility = 11
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+ext {
+    helidonversion = '2.2.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    // import Helidon BOM
+    implementation enforcedPlatform("io.helidon:helidon-dependencies:${project.helidonversion}")
+    implementation 'io.helidon.webserver:helidon-webserver'
+    implementation 'io.helidon.media:helidon-media-jsonp'
+    implementation 'io.helidon.config:helidon-config-yaml'
+    implementation 'io.helidon.health:helidon-health'
+    implementation 'io.helidon.health:helidon-health-checks'
+    implementation 'io.helidon.metrics:helidon-metrics'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testImplementation 'io.helidon.webclient:helidon-webclient'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+// define a custom task to copy all dependencies in the runtime classpath
+// into build/libs/libs
+// uses built-in Copy
+task copyLibs(type: Copy) {
+  from configurations.runtimeClasspath
+  into 'build/libs/libs'
+}
+
+// add it as a dependency of built-in task 'assemble'
+copyLibs.dependsOn jar
+assemble.dependsOn copyLibs
+
+// default jar configuration
+// set the main classpath
+// add each jar under build/libs/libs into the classpath
+jar {
+  archiveFileName = "${project.name}.jar"
+  manifest {
+    attributes ('Main-Class': 'io.helidon.examples.quickstart.se.Main', // 自分のアプリケーションの構造に合わせて修正してください
+                'Class-Path': configurations.runtimeClasspath.files.collect { "libs/$it.name" }.join(' ')
+               )
+  }
+}
+
+```
+
+ビルドはおなじみのコマンドで。
+
+```bash
+$ gradle build
+```
+
 # 終わりに
+
+今回は、プロジェクトの生成までを一通りやってみました。次回以降[公式ドキュメント](https://helidon.io/docs/v2/#/se/introduction/01_introduction)に記載されているコンポーネントを順番に試していきたいと思います。
+
+今回作成したソースコードはこちらのリポジトリに格納しています。
 
 # 参考
 
