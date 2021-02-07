@@ -1,6 +1,5 @@
 +++
 title = ""
-description = ""
 author = "Shuhei, Kawamura"
 date = ""
 tags = []
