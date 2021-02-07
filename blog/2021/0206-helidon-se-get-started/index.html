@@ -1,0 +1,311 @@
+<!doctype html><html lang=ja><head><meta charset=utf-8><title>Helidon SE Get Started - Shukawam's Daily Blog</title><meta name=viewport content="width=device-width,initial-scale=1"><link rel=apple-touch-icon sizes=180x180 href="/blog/favicon/apple-touch-icon.png?v=1"><link rel=icon type=image/png sizes=32x32 href="/blog/favicon/favicon-32x32.png?v=1"><link rel=icon type=image/png sizes=16x16 href="/blog/favicon/favicon-16x16.png?v=1"><link rel=manifest href="/blog/favicon/site.webmanifest?v=1"><link rel=mask-icon href="/blog/favicon/safari-pinned-tab.svg?v=1" color=#ffffff><link rel="shortcut icon" href="/blog/favicon/favicon.ico?v=1"><meta name=msapplication-config content="/blog/favicon/browserconfig.xml?v=1"><meta name=msapplication-TileColor content="#ffffff"><meta name=theme-color content="#ffffff"><meta name=generator content="Hugo 0.74.2"><meta property="og:site_name" content="Shukawam's Daily Blog"><meta property="og:title" content="Helidon SE Get Started"><meta property="og:description" content="Shukawam's Daily Blog."><meta property="description" content="Shukawam's Daily Blog."><meta property="og:url" content="https://shukawam.github.io/blog/blog/2021/0206-helidon-se-get-started/"><meta property="og:type" content="article"><meta property="og:image" content="https://shukawam.github.io/blog/img/2021/0206/helidon.jpg"><meta property="og:image:alt" content><link rel=stylesheet href=/blog/css/bundle.min.d9e04ae08c9b3049b766dbd4aeab7d862c5ea1d13679b621490e0f5df5507497.css integrity="sha256-2eBK4IybMEm3ZtvUrqt9hixeodE2ebYhSQ4PXfVQdJc="><link rel=stylesheet href=/blog/css/add-on.css></head><body><header id=site-header><nav id=site-nav><h1 class=nav-title><a href=/blog/ class=nav>ブログ</a></h1><menu id=site-nav-menu class="flyout-menu menu"><a href=/blog class="nav link"><i class="fa fa-home"></i>Home</a>
+<a href=/blog/blog/ class="nav link"><i class="far fa-newspaper"></i>Blog</a>
+<a href=#share-menu class="nav link share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+<a href=#search-input class="nav link search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a></menu>
+<a href=#search-input class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+<a href=#share-menu class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+<a href=#lang-menu class="nav lang-toggle" lang=ja>ja</a>
+<a href=#site-nav class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a></nav><menu id=search class=menu><input id=search-input class="search-input menu"></input><div id=search-results class="search-results menu"></div></menu><menu id=lang-menu class="flyout-menu menu"><a href=# lang=ja class="nav link active">日本語 (ja)</a></menu>
+<menu id=share-menu class="flyout-menu menu"><h1>Share Post</h1><a href="//twitter.com/share?text=Helidon%20SE%20Get%20Started&url=https%3a%2f%2fshukawam.github.io%2fblog%2fblog%2f2021%2f0206-helidon-se-get-started%2f" target=_blank rel=noopener class="nav share-btn twitter"><p>Twitter</p></a><a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fshukawam.github.io%2fblog%2fblog%2f2021%2f0206-helidon-se-get-started%2f" target=_blank rel=noopener class="nav share-btn facebook"><p>Facebook</p></a><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fshukawam.github.io%2fblog%2fblog%2f2021%2f0206-helidon-se-get-started%2f&title=Helidon%20SE%20Get%20Started" target=_blank rel=noopener class="nav share-btn linkedin"><p>LinkedIn</p></a></menu></header><div id=wrapper><section id=site-intro><a href=/blog/><img src=https://shukawam.github.io/blog/img/main/icon.jpg class=circle width=100 alt="Shuhei, Kawamura"></a><header><h1>Shuhei, Kawamura</h1></header><main><p>Solutions Engineer at @Oracle_Japan. Like music, snowboarding and cooking. All my opinions are my own.</p></main><footer><ul class=socnet-icons><li><a href=//github.com/shukawam target=_blank rel=noopener title=GitHub class="fab fa-github"></a></li><li><a href=//twitter.com/shukawam target=_blank rel=noopener title=Twitter class="fab fa-twitter"></a></li></ul></footer></section><main id=site-main><article class=post><header><div class=title><h2><a href=/blog/blog/2021/0206-helidon-se-get-started/>Helidon SE Get Started</a></h2></div><div class=meta><time datetime="2021-02-07 00:00:00 +0000 UTC">2021-02-07</time><p>Shuhei, Kawamura</p><p>6 分で読めます</p></div></header><div id=socnet-share><a href="//twitter.com/share?text=Helidon%20SE%20Get%20Started&url=https%3a%2f%2fshukawam.github.io%2fblog%2fblog%2f2021%2f0206-helidon-se-get-started%2f" target=_blank rel=noopener class="nav share-btn twitter"><p>Twitter</p></a><a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fshukawam.github.io%2fblog%2fblog%2f2021%2f0206-helidon-se-get-started%2f" target=_blank rel=noopener class="nav share-btn facebook"><p>Facebook</p></a><a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fshukawam.github.io%2fblog%2fblog%2f2021%2f0206-helidon-se-get-started%2f&title=Helidon%20SE%20Get%20Started" target=_blank rel=noopener class="nav share-btn linkedin"><p>LinkedIn</p></a></div><div class=content><a href=/blog/blog/2021/0206-helidon-se-get-started/ class=image style="--bg-image: url('https://shukawam.github.io/blog/img/2021/0206/helidon.jpg')"><img src=https://shukawam.github.io/blog/img/2021/0206/helidon.jpg alt></a><h1 id=始めに>始めに</h1><p>Java の軽量フレームワークの一つである <a href=https://helidon.io/#/>Helidon</a> を何回かに分けて全コンポーネントを触ってみたいと思います。尚、<a href=https://helidon.io/#/>Helidon</a> には</p><ul><li><a href=https://helidon.io/docs/v2/#/se/introduction/01_introduction>Helidon SE</a>: 軽量でフットプリント重視</li><li><a href=https://helidon.io/docs/v2/#/mp/introduction/01_introduction>Helidon MP</a>: Eclipse MicroProfile との互換性や機能性を重視</li></ul><p>と、エディションが二つ存在しますが、一旦は SE の方に注目して触っていきたいと思います。(SE のコンポーネントを一通り試し終わったら、MP も同様に試していきます。) 今回は、アプリケーションの生成までをやっていきます。</p><h1 id=環境>環境</h1><p>一応、私の環境情報を載せておきます。</p><ul><li>OS: Windows 10(WSL2 で Ubuntu 18.04 を使用しています)</li><li>Java: OpenJDK 11</li></ul><h1 id=手順>手順</h1><h2 id=helidon-cli-を使う>Helidon CLI を使う</h2><p>アプリケーションのひな型生成や開発モード（ソースコードの変更を再度ビルドする必要なく即時反映してくれる仕組み）をサポートしている便利ツールです。2021/02/06 現在、Windows はまだ CLI の配布がされていないため、ローカルで CLI を使用したい場合は、WSL2 で Ubuntu を使うなどのひと工夫が必要です。</p><p>インストール自体は、非常に簡単でバイナリをダウンロードしてパスが通っているところにインストールするだけで大丈夫です。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl -O https://helidon.io/cli/latest/linux/helidon
+$ chmod +x ./helidon
+$ sudo mv ./helidon /usr/local/bin/
+</code></pre></div><p>とりあえず、どんなことができるかを見ておきます。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ helidon --help
+
+Usage:  helidon <span style=color:#f92672>[</span>OPTIONS<span style=color:#f92672>]</span> COMMAND
+
+Helidon Project command line tool
+
+Options:
+  -D&lt;name&gt;<span style=color:#f92672>=</span>&lt;value&gt;    Define a system property
+  --verbose           Produce verbose output
+  --debug             Produce debug output
+  --plain             Do not use color or styles in output
+
+Commands:
+  build      Build the application
+  dev        Continuous application development
+  info       Print project information
+  init       Generate a new project
+  version    Print version information
+
+Run <span style=color:#e6db74>&#39;helidon COMMAND --help&#39;</span> <span style=color:#66d9ef>for</span> more information on a command.
+</code></pre></div><p>細かいオプションを抜きにして以下の様な操作が可能となっています。</p><ul><li>build<ul><li>アプリケーションのビルドができる</li><li><code>--mode=PLAIN|NATIVE|JLINK</code>で実行可能 JAR, Native Image(要 GraalVM), jlink を使用したビルドが選択可能</li></ul></li><li>dev<ul><li>Helidon のアプリケーションを開発モード(ソースコードの変更を即時反映してくれる仕組み)で起動することができる</li></ul></li><li>info<ul><li>プロジェクトの情報を出力できる</li></ul></li><li>init<ul><li>プロジェクトの生成ができる</li><li>対話形式 or オプションで指定することで用途に合わせたひな型からプロジェクトを生成することができる</li></ul></li><li>version<ul><li>バージョン情報を出力する</li></ul></li></ul><p>では、さっそくアプリケーションを作ってみたいと思います。まずは、ミニマルな構成で作成し、今後検証したコンポーネントを随時追加していきたいと思います。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ helidon init --flavor SE --build MAVEN --archetype bare --groupid shukawam.examples --package shukawam.examples.helidon.se --name helidon-se-examples
+Using Helidon version 2.2.0
+Helidon flavor
+  <span style=color:#f92672>(</span>1<span style=color:#f92672>)</span> SE
+  <span style=color:#f92672>(</span>2<span style=color:#f92672>)</span> MP
+Enter selection <span style=color:#f92672>(</span>Default: 1<span style=color:#f92672>)</span>:
+Select archetype
+  <span style=color:#f92672>(</span>1<span style=color:#f92672>)</span> bare | Minimal Helidon SE project suitable to start from scratch
+  <span style=color:#f92672>(</span>2<span style=color:#f92672>)</span> quickstart | Sample Helidon SE project that includes multiple REST operations
+  <span style=color:#f92672>(</span>3<span style=color:#f92672>)</span> database | Helidon SE application that uses the dbclient API with an in-memory H2 database
+Enter selection <span style=color:#f92672>(</span>Default: 1<span style=color:#f92672>)</span>:
+Project name <span style=color:#f92672>(</span>Default: helidon-se-examples<span style=color:#f92672>)</span>:
+Project groupId <span style=color:#f92672>(</span>Default: shukawam.examples<span style=color:#f92672>)</span>:
+Project artifactId <span style=color:#f92672>(</span>Default: helidon-se-examples<span style=color:#f92672>)</span>:
+Project version <span style=color:#f92672>(</span>Default: 1.0-SNAPSHOT<span style=color:#f92672>)</span>:
+Java package name <span style=color:#f92672>(</span>Default: shukawam.examples.helidon.se<span style=color:#f92672>)</span>:
+Switch directory to /home/kawamura/git/helidon-se-examples to use CLI
+
+Start development loop? <span style=color:#f92672>(</span>Default: n<span style=color:#f92672>)</span>:
+</code></pre></div><p>Helidon CLI で生成されたアプリケーションを少し見てみると、以下の様になっています。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cd helidon-se-examples
+$ tree
+.
+├── README.md
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── shukawam
+    │   │       └── examples
+    │   │           └── helidon
+    │   │               └── se
+    │   │                   ├── GreetService.java <span style=color:#75715e># 自動生成されたサービスクラス(ビジネスロジックを記載するクラス)</span>
+    │   │                   ├── Main.java <span style=color:#75715e># Mainクラス(サーバの起動やルーティングの設定を行うクラス)</span>
+    │   │                   └── package-info.java
+    │   └── resources
+    │       ├── META-INF
+    │       │   └── native-image
+    │       │       └── reflect-config.json <span style=color:#75715e># Native Image 化する際の設定ファイル(Reflection API 関連の設定ファイルです。詳細は、https://www.graalvm.org/reference-manual/native-image/Reflection/をどうぞ)</span>
+    │       ├── application.yaml <span style=color:#75715e># Application の設定ファイル</span>
+    │       └── logging.properties <span style=color:#75715e># ログの設定ファイル</span>
+    └── test
+        └── java
+            └── shukawam
+                └── examples
+                    └── helidon
+                        └── se
+                            └── MainTest.java <span style=color:#75715e># テストコード</span>
+
+<span style=color:#ae81ff>16</span> directories, <span style=color:#ae81ff>9</span> files
+</code></pre></div><p>開発モードで起動してみます。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ helidon dev
+helidon dev
+
+| source file changed
+| rebuilding <span style=color:#f92672>(</span>incremental<span style=color:#f92672>)</span>
+| rebuild completed <span style=color:#f92672>(</span>0.3 seconds<span style=color:#f92672>)</span>
+| helidon-se-examples starting
+
+2021.02.06 23:10:47 INFO io.helidon.common.LogConfig Thread<span style=color:#f92672>[</span>main,5,main<span style=color:#f92672>]</span>: Logging at initialization configured using classpath: /logging.properties
+2021.02.06 23:10:48 INFO io.helidon.common.HelidonFeatures Thread<span style=color:#f92672>[</span>features-thread,5,main<span style=color:#f92672>]</span>: Helidon SE 2.2.0 features: <span style=color:#f92672>[</span>Config, Health, Metrics, WebServer<span style=color:#f92672>]</span>
+2021.02.06 23:10:48 INFO io.helidon.webserver.NettyWebServer Thread<span style=color:#f92672>[</span>nioEventLoopGroup-2-1,10,main<span style=color:#f92672>]</span>: Channel <span style=color:#e6db74>&#39;@default&#39;</span> started: <span style=color:#f92672>[</span>id: 0x930f8a6a, L:/0:0:0:0:0:0:0:0:8080<span style=color:#f92672>]</span>
+WEB server is up! http://localhost:8080 in <span style=color:#ae81ff>1017</span> milliseconds <span style=color:#f92672>(</span>since JVM startup<span style=color:#f92672>)</span>.
+</code></pre></div><p>JVM が起動してからアプリケーションが起動するまでの時間を計測したいので以下のログステートメントを追記しています。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java>System<span style=color:#f92672>.</span><span style=color:#a6e22e>out</span><span style=color:#f92672>.</span><span style=color:#a6e22e>println</span><span style=color:#f92672>(</span>
+    String<span style=color:#f92672>.</span><span style=color:#a6e22e>format</span><span style=color:#f92672>(</span>
+      <span style=color:#e6db74>&#34;WEB server is up! http://localhost:%s in %s milliseconds (since JVM startup).&#34;</span><span style=color:#f92672>,</span> <span style=color:#75715e>// 追記
+</span><span style=color:#75715e></span>      ws<span style=color:#f92672>.</span><span style=color:#a6e22e>port</span><span style=color:#f92672>(),</span>
+      ManagementFactory<span style=color:#f92672>.</span><span style=color:#a6e22e>getRuntimeMXBean</span><span style=color:#f92672>().</span><span style=color:#a6e22e>getUptime</span><span style=color:#f92672>()</span>
+    <span style=color:#f92672>)</span>
+<span style=color:#f92672>);</span>
+</code></pre></div><p>折角なので、Native Image も作ってみます。今回は GraalVM の環境を作らずに Native Image を作成するため、以下の様な Dockerfile を用意します。</p><p><strong>Dockerfile.native</strong></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-docker data-lang=docker><span style=color:#75715e># 1st stage, build the app</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>FROM</span><span style=color:#e6db74> helidon/jdk11-graalvm-maven:20.2.0 as build</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>WORKDIR</span><span style=color:#e6db74> /helidon</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e># Create a first layer to cache the &#34;Maven World&#34; in the local repository.</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e># Incremental docker builds will always resume after that, unless you update</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e># the pom</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>ADD</span> pom.xml .<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>RUN</span> mvn package -Pnative-image -Dnative.image.skip -DskipTests<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e># Do the Maven build!</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e># Incremental docker builds will resume here when you change sources</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>ADD</span> src src<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>RUN</span> mvn package -Pnative-image -Dnative.image.buildStatic -DskipTests<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>RUN</span> echo <span style=color:#e6db74>&#34;done!&#34;</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e># 2nd stage, build the runtime image</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>FROM</span><span style=color:#e6db74> scratch</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>WORKDIR</span><span style=color:#e6db74> /helidon</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e># Copy the binary built in the 1st stage</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>COPY</span> --from<span style=color:#f92672>=</span>build /helidon/target/helidon-se-examples .<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>ENTRYPOINT</span> [<span style=color:#e6db74>&#34;./helidon-se-examples&#34;</span>]<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>EXPOSE</span><span style=color:#e6db74> 8080</span><span style=color:#960050;background-color:#1e0010>
+</span></code></pre></div><p>Native Image を生成します。(手元の環境に GraalVM のランタイムが入っている場合は、<code>Helidon build --mode NATIVE</code>で Native Image のビルドができます。)</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker build -t shukawam/helidon-se-native-image:v1.0 -f Dockerfile.native .
+</code></pre></div><p>起動してみます。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker run -p 8080:8080 shukawam/helidon-se-native-image:v1.0
+02021.02.06 15:13:23 INFO io.helidon.common.LogConfig Thread<span style=color:#f92672>[</span>main,5,main<span style=color:#f92672>]</span>: Logging at runtime configured using classpath: /logging.properties
+2021.02.06 15:13:23 INFO io.helidon.common.HelidonFeatures Thread<span style=color:#f92672>[</span>features-thread,5,main<span style=color:#f92672>]</span>: Helidon SE 2.2.0 features: <span style=color:#f92672>[</span>Config, Health, Metrics, WebServer<span style=color:#f92672>]</span>
+2021.02.06 15:13:23 INFO io.helidon.webserver.NettyWebServer Thread<span style=color:#f92672>[</span>nioEventLoopGroup-2-1,10,main<span style=color:#f92672>]</span>: Channel <span style=color:#e6db74>&#39;@default&#39;</span> started: <span style=color:#f92672>[</span>id: 0x4c520a0c, L:/0.0.0.0:8080<span style=color:#f92672>]</span>
+WEB server is up! http://localhost:8080 in <span style=color:#ae81ff>18</span> milliseconds <span style=color:#f92672>(</span>since JVM startup<span style=color:#f92672>)</span>.
+</code></pre></div><p>18ms&mldr;さすがに、起動は桁違いに速いです。</p><p>ちなみに、自動生成された<code>pom.xml</code>内の依存関係は以下の様になっていました。</p><p><code>pom.xml</code></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-xml data-lang=xml><span style=color:#f92672>&lt;dependencies&gt;</span>
+    <span style=color:#f92672>&lt;dependency&gt;</span>
+        <span style=color:#f92672>&lt;groupId&gt;</span>io.helidon.webserver<span style=color:#f92672>&lt;/groupId&gt;</span>
+        <span style=color:#f92672>&lt;artifactId&gt;</span>helidon-webserver<span style=color:#f92672>&lt;/artifactId&gt;</span>
+    <span style=color:#f92672>&lt;/dependency&gt;</span>
+    <span style=color:#f92672>&lt;dependency&gt;</span>
+        <span style=color:#f92672>&lt;groupId&gt;</span>io.helidon.media<span style=color:#f92672>&lt;/groupId&gt;</span>
+        <span style=color:#f92672>&lt;artifactId&gt;</span>helidon-media-jsonp<span style=color:#f92672>&lt;/artifactId&gt;</span>
+    <span style=color:#f92672>&lt;/dependency&gt;</span>
+    <span style=color:#f92672>&lt;dependency&gt;</span>
+        <span style=color:#f92672>&lt;groupId&gt;</span>io.helidon.config<span style=color:#f92672>&lt;/groupId&gt;</span>
+        <span style=color:#f92672>&lt;artifactId&gt;</span>helidon-config-yaml<span style=color:#f92672>&lt;/artifactId&gt;</span>
+    <span style=color:#f92672>&lt;/dependency&gt;</span>
+    <span style=color:#f92672>&lt;dependency&gt;</span>
+        <span style=color:#f92672>&lt;groupId&gt;</span>io.helidon.health<span style=color:#f92672>&lt;/groupId&gt;</span>
+        <span style=color:#f92672>&lt;artifactId&gt;</span>helidon-health<span style=color:#f92672>&lt;/artifactId&gt;</span>
+    <span style=color:#f92672>&lt;/dependency&gt;</span>
+    <span style=color:#f92672>&lt;dependency&gt;</span>
+        <span style=color:#f92672>&lt;groupId&gt;</span>io.helidon.health<span style=color:#f92672>&lt;/groupId&gt;</span>
+        <span style=color:#f92672>&lt;artifactId&gt;</span>helidon-health-checks<span style=color:#f92672>&lt;/artifactId&gt;</span>
+    <span style=color:#f92672>&lt;/dependency&gt;</span>
+    <span style=color:#f92672>&lt;dependency&gt;</span>
+        <span style=color:#f92672>&lt;groupId&gt;</span>io.helidon.metrics<span style=color:#f92672>&lt;/groupId&gt;</span>
+        <span style=color:#f92672>&lt;artifactId&gt;</span>helidon-metrics<span style=color:#f92672>&lt;/artifactId&gt;</span>
+    <span style=color:#f92672>&lt;/dependency&gt;</span>
+    <span style=color:#f92672>&lt;dependency&gt;</span>
+        <span style=color:#f92672>&lt;groupId&gt;</span>org.junit.jupiter<span style=color:#f92672>&lt;/groupId&gt;</span>
+        <span style=color:#f92672>&lt;artifactId&gt;</span>junit-jupiter-api<span style=color:#f92672>&lt;/artifactId&gt;</span>
+        <span style=color:#f92672>&lt;scope&gt;</span>test<span style=color:#f92672>&lt;/scope&gt;</span>
+    <span style=color:#f92672>&lt;/dependency&gt;</span>
+    <span style=color:#f92672>&lt;dependency&gt;</span>
+        <span style=color:#f92672>&lt;groupId&gt;</span>io.helidon.webclient<span style=color:#f92672>&lt;/groupId&gt;</span>
+        <span style=color:#f92672>&lt;artifactId&gt;</span>helidon-webclient<span style=color:#f92672>&lt;/artifactId&gt;</span>
+        <span style=color:#f92672>&lt;scope&gt;</span>test<span style=color:#f92672>&lt;/scope&gt;</span>
+    <span style=color:#f92672>&lt;/dependency&gt;</span>
+<span style=color:#f92672>&lt;/dependencies&gt;</span>
+</code></pre></div><p>マイクロサービスの実装に必要不可欠な Metrics, Health Check, Config といったライブラリは、既に含まれているので特に設定することなく、Metrics や Health Check のエンドポイントを利用可能になっています。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Health Check</span>
+$ curl http://localhost:8080/health
+<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;outcome&#34;</span>:<span style=color:#e6db74>&#34;UP&#34;</span>,<span style=color:#e6db74>&#34;status&#34;</span>:<span style=color:#e6db74>&#34;UP&#34;</span>,<span style=color:#e6db74>&#34;checks&#34;</span>:<span style=color:#f92672>[{</span><span style=color:#e6db74>&#34;name&#34;</span>:<span style=color:#e6db74>&#34;deadlock&#34;</span>,<span style=color:#e6db74>&#34;state&#34;</span>:<span style=color:#e6db74>&#34;UP&#34;</span>,<span style=color:#e6db74>&#34;status&#34;</span>:<span style=color:#e6db74>&#34;UP&#34;</span><span style=color:#f92672>}</span>,<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;name&#34;</span>:<span style=color:#e6db74>&#34;diskSpace&#34;</span>,<span style=color:#e6db74>&#34;state&#34;</span>:<span style=color:#e6db74>&#34;UP&#34;</span>,<span style=color:#e6db74>&#34;status&#34;</span>:<span style=color:#e6db74>&#34;UP&#34;</span>,<span style=color:#e6db74>&#34;data&#34;</span>:<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;free&#34;</span>:<span style=color:#e6db74>&#34;228.23 GB&#34;</span>,<span style=color:#e6db74>&#34;freeBytes&#34;</span>:245060718592,<span style=color:#e6db74>&#34;percentFree&#34;</span>:<span style=color:#e6db74>&#34;90.93%&#34;</span>,<span style=color:#e6db74>&#34;total&#34;</span>:<span style=color:#e6db74>&#34;250.98 GB&#34;</span>,<span style=color:#e6db74>&#34;totalBytes&#34;</span>:269490393088<span style=color:#f92672>}}</span>,<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;name&#34;</span>:<span style=color:#e6db74>&#34;heapMemory&#34;</span>,<span style=color:#e6db74>&#34;state&#34;</span>:<span style=color:#e6db74>&#34;UP&#34;</span>,<span style=color:#e6db74>&#34;status&#34;</span>:<span style=color:#e6db74>&#34;UP&#34;</span>,<span style=color:#e6db74>&#34;data&#34;</span>:<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;free&#34;</span>:<span style=color:#e6db74>&#34;68.51 MB&#34;</span>,<span style=color:#e6db74>&#34;freeBytes&#34;</span>:71841744,<span style=color:#e6db74>&#34;max&#34;</span>:<span style=color:#e6db74>&#34;1.54 GB&#34;</span>,<span style=color:#e6db74>&#34;maxBytes&#34;</span>:1648361472,<span style=color:#e6db74>&#34;percentFree&#34;</span>:<span style=color:#e6db74>&#34;97.87%&#34;</span>,<span style=color:#e6db74>&#34;total&#34;</span>:<span style=color:#e6db74>&#34;102.00 MB&#34;</span>,<span style=color:#e6db74>&#34;totalBytes&#34;</span>:106954752<span style=color:#f92672>}}]}</span>
+
+<span style=color:#75715e># Metrics</span>
+$ curl http://localhost:8080/metrics --header <span style=color:#e6db74>&#39;Accept:application/json&#39;</span>
+<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;base&#34;</span>:<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;classloader.loadedClasses.count&#34;</span>:3881,<span style=color:#e6db74>&#34;classloader.loadedClasses.total&#34;</span>:3884,<span style=color:#e6db74>&#34;classloader.unloadedClasses.total&#34;</span>:0,<span style=color:#e6db74>&#34;cpu.availableProcessors&#34;</span>:8,<span style=color:#e6db74>&#34;cpu.systemLoadAverage&#34;</span>:0.26,<span style=color:#e6db74>&#34;gc.time;name=G1 Old Generation&#34;</span>:0,<span style=color:#e6db74>&#34;gc.time;name=G1 Young Generation&#34;</span>:17,<span style=color:#e6db74>&#34;gc.total;name=G1 Old Generation&#34;</span>:0,<span style=color:#e6db74>&#34;gc.total;name=G1 Young Generation&#34;</span>:1,<span style=color:#e6db74>&#34;jvm.uptime&#34;</span>:118654,<span style=color:#e6db74>&#34;memory.committedHeap&#34;</span>:106954752,<span style=color:#e6db74>&#34;memory.maxHeap&#34;</span>:1648361472,<span style=color:#e6db74>&#34;memory.usedHeap&#34;</span>:38256688,<span style=color:#e6db74>&#34;thread.count&#34;</span>:20,<span style=color:#e6db74>&#34;thread.daemon.count&#34;</span>:15,<span style=color:#e6db74>&#34;thread.max.count&#34;</span>:20<span style=color:#f92672>}</span>,<span style=color:#e6db74>&#34;vendor&#34;</span>:<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;requests.count&#34;</span>:2,<span style=color:#e6db74>&#34;requests.meter&#34;</span>:<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;count&#34;</span>:2,<span style=color:#e6db74>&#34;meanRate&#34;</span>:0.016974990693588664,<span style=color:#e6db74>&#34;oneMinRate&#34;</span>:0.006394042634681005,<span style=color:#e6db74>&#34;fiveMinRate&#34;</span>:0.002751971906724164,<span style=color:#e6db74>&#34;fifteenMinRate&#34;</span>:0.0010423449272394232<span style=color:#f92672>}}}</span>
+</code></pre></div><h2 id=maven-を使う>Maven を使う</h2><p>以下、Maven, Gradle を使う場合についても参考程度に載せておきます。</p><p>プロジェクトを生成します。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ mvn -U archetype:generate -DinteractiveMode<span style=color:#f92672>=</span>false <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    -DarchetypeGroupId<span style=color:#f92672>=</span>io.helidon.archetypes <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    -DarchetypeArtifactId<span style=color:#f92672>=</span>helidon-quickstart-se <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    -DarchetypeVersion<span style=color:#f92672>=</span>2.2.0 <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    -DgroupId<span style=color:#f92672>=</span>io.helidon.examples <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    -DartifactId<span style=color:#f92672>=</span>helidon-quickstart-se <span style=color:#ae81ff>\
+</span><span style=color:#ae81ff></span>    -Dpackage<span style=color:#f92672>=</span>io.helidon.examples.quickstart.se
+</code></pre></div><p>中身を覗いてみると以下のようになっています。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tree
+.
+├── Dockerfile <span style=color:#75715e># 実行可能JARを生成するDockerfile</span>
+├── Dockerfile.jlink <span style=color:#75715e># jlinkを使用してビルドするDockerfile</span>
+├── Dockerfile.native <span style=color:#75715e># Native Imageを生成するDockerfile</span>
+├── README.md
+├── app.yaml <span style=color:#75715e># Kubernetesのマニフェストファイル</span>
+├── pom.xml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── io
+    │   │       └── helidon
+    │   │           └── examples
+    │   │               └── quickstart
+    │   │                   └── se
+    │   │                       ├── GreetService.java
+    │   │                       ├── Main.java
+    │   │                       └── package-info.java
+    │   └── resources
+    │       ├── META-INF
+    │       │   └── native-image
+    │       │       └── reflect-config.json
+    │       ├── application.yaml
+    │       └── logging.properties
+    └── test
+        └── java
+            └── io
+                └── helidon
+                    └── examples
+                        └── quickstart
+                            └── se
+                                └── MainTest.java
+
+<span style=color:#ae81ff>18</span> directories, <span style=color:#ae81ff>13</span> files
+</code></pre></div><p>CLI から生成した時には、Kubernetes のマニフェストファイルや各種 Dockerfile は生成されなかったですが、これは便利そうですね。残りは、全て CLI から生成した場合と同じでした。</p><h2 id=gradle-を使う>Gradle を使う</h2><p>Helidon のサンプルはほとんどが Maven を使用していますが、Gradle も同様に使用することができます。(推奨は、Gradle 6+)Gradle を使用してビルドしたい場合は、<a href=https://github.com/oracle/helidon/tree/2.2.0/examples/quickstarts/helidon-quickstart-se>Helidon SE の QuickStart</a>に含まれる<code>build.gradle</code>を参考にするとよいです。</p><p><code>build.gradle</code></p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-gradle data-lang=gradle><span style=color:#75715e>/*
+</span><span style=color:#75715e> * Copyright (c) 2018, 2020 Oracle and/or its affiliates. All rights reserved.
+</span><span style=color:#75715e> *
+</span><span style=color:#75715e> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
+</span><span style=color:#75715e> * you may not use this file except in compliance with the License.
+</span><span style=color:#75715e> * You may obtain a copy of the License at
+</span><span style=color:#75715e> *
+</span><span style=color:#75715e> *     http://www.apache.org/licenses/LICENSE-2.0
+</span><span style=color:#75715e> *
+</span><span style=color:#75715e> * Unless required by applicable law or agreed to in writing, software
+</span><span style=color:#75715e> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
+</span><span style=color:#75715e> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+</span><span style=color:#75715e> * See the License for the specific language governing permissions and
+</span><span style=color:#75715e> * limitations under the License.
+</span><span style=color:#75715e> */</span>
+
+apply plugin: <span style=color:#e6db74>&#39;java&#39;</span>
+
+group <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;io.helidon.examples&#39;</span> <span style=color:#75715e>// 自分のアプリケーションに合わせて修正する
+</span><span style=color:#75715e></span>version <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;1.0-SNAPSHOT&#39;</span>
+
+description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;helidon-quickstart-se&#34;</span> <span style=color:#75715e>// 自分のアプリケーションに合わせて修正する
+</span><span style=color:#75715e></span>
+sourceCompatibility <span style=color:#f92672>=</span> <span style=color:#ae81ff>11</span>
+targetCompatibility <span style=color:#f92672>=</span> <span style=color:#ae81ff>11</span>
+tasks<span style=color:#f92672>.</span><span style=color:#a6e22e>withType</span><span style=color:#f92672>(</span>JavaCompile<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+    options<span style=color:#f92672>.</span><span style=color:#a6e22e>encoding</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;UTF-8&#39;</span>
+<span style=color:#f92672>}</span>
+
+ext <span style=color:#f92672>{</span>
+    helidonversion <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;2.2.0&#39;</span>
+<span style=color:#f92672>}</span>
+
+test <span style=color:#f92672>{</span>
+    useJUnitPlatform<span style=color:#f92672>()</span>
+<span style=color:#f92672>}</span>
+
+repositories <span style=color:#f92672>{</span>
+    mavenCentral<span style=color:#f92672>()</span>
+    mavenLocal<span style=color:#f92672>()</span>
+<span style=color:#f92672>}</span>
+
+dependencies <span style=color:#f92672>{</span>
+    <span style=color:#75715e>// import Helidon BOM
+</span><span style=color:#75715e></span>    implementation <span style=color:#a6e22e>enforcedPlatform</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#34;io.helidon:helidon-dependencies:${project.helidonversion}&#34;</span><span style=color:#f92672>)</span>
+    implementation <span style=color:#e6db74>&#39;io.helidon.webserver:helidon-webserver&#39;</span>
+    implementation <span style=color:#e6db74>&#39;io.helidon.media:helidon-media-jsonp&#39;</span>
+    implementation <span style=color:#e6db74>&#39;io.helidon.config:helidon-config-yaml&#39;</span>
+    implementation <span style=color:#e6db74>&#39;io.helidon.health:helidon-health&#39;</span>
+    implementation <span style=color:#e6db74>&#39;io.helidon.health:helidon-health-checks&#39;</span>
+    implementation <span style=color:#e6db74>&#39;io.helidon.metrics:helidon-metrics&#39;</span>
+
+    testImplementation <span style=color:#e6db74>&#39;org.junit.jupiter:junit-jupiter-api&#39;</span>
+    testImplementation <span style=color:#e6db74>&#39;io.helidon.webclient:helidon-webclient&#39;</span>
+    testRuntimeOnly <span style=color:#e6db74>&#39;org.junit.jupiter:junit-jupiter-engine&#39;</span>
+<span style=color:#f92672>}</span>
+
+<span style=color:#75715e>// define a custom task to copy all dependencies in the runtime classpath
+</span><span style=color:#75715e>// into build/libs/libs
+</span><span style=color:#75715e>// uses built-in Copy
+</span><span style=color:#75715e></span>task <span style=color:#a6e22e>copyLibs</span><span style=color:#f92672>(</span>type: Copy<span style=color:#f92672>)</span> <span style=color:#f92672>{</span>
+  from configurations<span style=color:#f92672>.</span><span style=color:#a6e22e>runtimeClasspath</span>
+  into <span style=color:#e6db74>&#39;build/libs/libs&#39;</span>
+<span style=color:#f92672>}</span>
+
+<span style=color:#75715e>// add it as a dependency of built-in task &#39;assemble&#39;
+</span><span style=color:#75715e></span>copyLibs<span style=color:#f92672>.</span><span style=color:#a6e22e>dependsOn</span> jar
+assemble<span style=color:#f92672>.</span><span style=color:#a6e22e>dependsOn</span> copyLibs
+
+<span style=color:#75715e>// default jar configuration
+</span><span style=color:#75715e>// set the main classpath
+</span><span style=color:#75715e>// add each jar under build/libs/libs into the classpath
+</span><span style=color:#75715e></span>jar <span style=color:#f92672>{</span>
+  archiveFileName <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;${project.name}.jar&#34;</span>
+  manifest <span style=color:#f92672>{</span>
+    attributes <span style=color:#f92672>(</span><span style=color:#e6db74>&#39;Main-Class&#39;</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#39;io.helidon.examples.quickstart.se.Main&#39;</span><span style=color:#f92672>,</span> <span style=color:#75715e>// 自分のアプリケーションの構造に合わせて修正してください
+</span><span style=color:#75715e></span>                <span style=color:#e6db74>&#39;Class-Path&#39;</span><span style=color:#f92672>:</span> configurations<span style=color:#f92672>.</span><span style=color:#a6e22e>runtimeClasspath</span><span style=color:#f92672>.</span><span style=color:#a6e22e>files</span><span style=color:#f92672>.</span><span style=color:#a6e22e>collect</span> <span style=color:#f92672>{</span> <span style=color:#e6db74>&#34;libs/$it.name&#34;</span> <span style=color:#f92672>}.</span><span style=color:#a6e22e>join</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#39; &#39;</span><span style=color:#f92672>)</span>
+               <span style=color:#f92672>)</span>
+  <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span>
+
+</code></pre></div><p>ビルドはおなじみのコマンドで。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ gradle build
+</code></pre></div><h1 id=終わりに>終わりに</h1><p>今回は、プロジェクトの生成までを一通りやってみました。次回以降<a href=https://helidon.io/docs/v2/#/se/introduction/01_introduction>公式ドキュメント</a>に記載されているコンポーネントを順番に試していきたいと思います。</p><p>今回作成したソースコードはこちらのリポジトリに格納しています。</p><h1 id=参考>参考</h1><ul><li><a href=https://helidon.io/#/>Helidon 公式ドキュメント</a></li></ul></div><footer><div class=stats><ul class=categories><li><a class=article-terms-link href=/blog/categories/tech/>tech</a></li></ul><ul class=tags><li><a class=article-terms-link href=/blog/tags/java/>java</a></li><li><a class=article-terms-link href=/blog/tags/helidon/>helidon</a></li><li><a class=article-terms-link href=/blog/tags/helidon-se/>helidon se</a></li></ul></div></footer></article><article class=post><div><h2 id=say-something>何か言ってください</h2><form id=comment-form class=new-comment method=post><h3 class="reply-notice hidden"><span class=reply-name></span></h3><input type=hidden name=options[entryId] value=caf249fd625e76cd3c8015d1726b3015>
+<input type=hidden name=fields[replyThread]>
+<input type=hidden name=fields[replyID]>
+<input type=hidden name=fields[replyName]>
+<input required name=fields[name] type=text placeholder=あなたの名前>
+<input name=fields[website] type=text placeholder=あなたのウェブサイト>
+<input required name=fields[email] type=email placeholder=あなたのメール>
+<textarea required name=fields[body] placeholder=あなたのメッセージ rows=10></textarea><div class=submit-notice><strong class="submit-notice-text submit-success hidden">コメントありがとうございます！承認されるとサイトに表示されます。</strong>
+<strong class="submit-notice-text submit-failed hidden">申し訳ありません。送信中にエラーが発生しました。必須入力フィールドがすべて入力されていることを確認して、もう一度やりなおしてください。</strong></div><input type=submit value=送信する class=button>
+<input type=submit value=送信しました class="hidden button" disabled>
+<input type=reset value=リセット class=button></form></div><div><h2>コメント</h2></div></article><div class=pagination><a href=/blog/blog/2020/0911-nestjs-async-multiple-db-connection/ class="button right"><span>Nest.jsで接続先情報を環境変数から非同期で取得する</span></a></div></main><section id=site-sidebar><section id=recent-posts><header><h1>最近の投稿</h1></header><article class=mini-post><a href=/blog/blog/2021/0206-helidon-se-get-started/ class=image style="--bg-image: url('https://shukawam.github.io/blog/img/2021/0206/helidon.jpg')"><img src=https://shukawam.github.io/blog/img/2021/0206/helidon.jpg alt></a><header><h2><a href=/blog/blog/2021/0206-helidon-se-get-started/>Helidon SE Get Started</a></h2><time class=published datetime="2021-02-07 00:00:00 +0000 UTC">2021-02-07</time></header></article><article class=mini-post><a href=/blog/blog/2020/0911-nestjs-async-multiple-db-connection/ class=image style="--bg-image: url('https://shukawam.github.io/blog/img/2020/0911/nestjs.png')"><img src=https://shukawam.github.io/blog/img/2020/0911/nestjs.png alt=Nest.js></a><header><h2><a href=/blog/blog/2020/0911-nestjs-async-multiple-db-connection/>Nest.jsで接続先情報を環境変数から非同期で取得する</a></h2><time class=published datetime="2020-09-11 00:00:00 +0000 UTC">2020-09-11</time></header></article><article class=mini-post><a href=/blog/blog/2020/0909-about-this-blog/ class=image style="--bg-image: url('https://shukawam.github.io/blog/img/2020/0909/hugo.png')"><img src=https://shukawam.github.io/blog/img/2020/0909/hugo.png alt="Desert Scene"></a><header><h2><a href=/blog/blog/2020/0909-about-this-blog/>Hugo + GitHub Pagesでブログを始めた</a></h2><time class=published datetime="2020-09-08 00:00:00 +0000 UTC">2020-09-08</time></header></article></section><section id=categories><header><h1><a href=/blog/categories>カテゴリー</a></h1></header><ul><li><a href=/blog/categories/tech/>tech<span class=count>3</span></a></li></ul></section></section><footer id=site-footer><ul class=socnet-icons><li><a href=//github.com/shukawam target=_blank rel=noopener title=GitHub class="fab fa-github"></a></li><li><a href=//twitter.com/shukawam target=_blank rel=noopener title=Twitter class="fab fa-twitter"></a></li></ul><p class=copyright>© 2021 Shukawam's Daily Blog<br>Theme: <a href=https://github.com/pacollins/hugo-future-imperfect-slim target=_blank rel=noopener>Hugo Future Imperfect Slim</a><br>A <a href=https://html5up.net/future-imperfect target=_blank rel=noopener>HTML5 UP port</a> | Powered by <a href=https://gohugo.io/ title=0.74.2 target=_blank rel=noopener>Hugo</a></p></footer><a id=back-to-top href=# class="fas fa-arrow-up fa-2x"></a><script src=/blog/js/highlight.js></script><script>hljs.initHighlightingOnLoad();</script><script src=/blog/js/bundle.min.be4645f569989a6c2570a70c64ce7bf4081026e053397812946277ba2033f385.js integrity="sha256-vkZF9WmYmmwlcKcMZM579AgQJuBTOXgSlGJ3uiAz84U="></script><script src=/blog/js/add-on.js></script></div></body></html>
