@@ -1,10 +1,10 @@
 +++
 title = "Hugo + GitHub Pagesでブログを始めた"
-description = ""
 author = "Shuhei, Kawamura"
 date = "2020-09-08"
-tags = ["Hugo", "GitHub", "GitHub Pages", "GitHub Actions"]
+tags = ["hugo", "github", "github pages", "github actions"]
 categories = ["tech"]
+draft = "false"
 [[images]]
   src = "img/2020/0909/hugo.png"
   alt = "Desert Scene"
@@ -65,12 +65,11 @@ Windows 10 を使用しています。Chocolatey, Scoop といったパッケー
 
 [https://github.com/gohugoio/hugo/releases](https://github.com/gohugoio/hugo/releases)から最新版の zip ファイルをダウンロードし適用なディレクトリに解凍します。
 
-
 同じバージョンでも通常版（hugo）と Extended 版（hugo_extended）と 2 種類ありますが、後ほど紹介する公開されているテーマを使用する場合は**Extended 版**の方を選択してください。（Extended 版の方は、SASS/SCSS が使用できます。公開されているテーマで SASS/SCSS が使用されている場合、通常の hugo ではエラーが発生し静的ファイルの生成ができません。）
 
 次に、パスを通します。システム環境変数から`Path`を選択し、先ほど解凍したディレクトリを指定します。
 
-```
+```bash
 $ hugo version
 Hugo Static Site Generator v0.74.3/extended windows/amd64 BuildDate: unknown
 ```
@@ -81,7 +80,7 @@ Hugo Static Site Generator v0.74.3/extended windows/amd64 BuildDate: unknown
 
 適当なディレクトリで以下のように入力する。
 
-```
+```bash
 $ hugo new site blog
 Congratulations! Your new Hugo site is created in C:\Git\test\blog.
 
@@ -105,7 +104,7 @@ Visit https://gohugo.io/ for quickstart guide and full documentation.
 
 テーマは Git の Submodule として管理するのが主流みたいです。
 
-```
+```bash
 $ cd blog/themes
 $ git submodule add https://github.com/pacollins/hugo-future-imperfect-slim.git
 $ git submodule update --remote --merge
@@ -115,7 +114,7 @@ $ git submodule update --remote --merge
 
 サンプルサイトの設定ファイル（`config.toml, staticman.yml`）を自サイトのルートにコピーします。
 
-```
+```bash
 $ cp ./hugo-future-imperfect-slim/exampleSite/config.toml ../
 $ cp ./hugo-future-imperfect-slim/exampleSite/staticman.yml ../
 ```
@@ -146,7 +145,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.74.2'
+          hugo-version: "0.74.2"
           extended: true
 
       - name: Build

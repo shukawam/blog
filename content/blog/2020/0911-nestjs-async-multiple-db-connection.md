@@ -1,10 +1,10 @@
 +++
 title = "Nest.jsで接続先情報を環境変数から非同期で取得する"
-description = ""
 author = "Shuhei, Kawamura"
 date = "2020-09-11"
-tags = ["Node.js", "Nest.js", "TypeORM"]
+tags = ["node", "nest"]
 categories = ["tech"]
+draft = "false"
 [[images]]
   src = "img/2020/0911/nestjs.png"
   alt = "Nest.js"
@@ -13,11 +13,10 @@ categories = ["tech"]
 +++
 
 # 始めに
-※ブログを一か所にまとめるため、以前Qiitaに投稿した記事の移行しています。
+
+※ブログを一か所にまとめるため、以前 Qiita に投稿した記事の移行しています。
 
 Nest.js で環境ごとにデータベースの接続先を分けるために、接続情報を実行環境の環境変数から非同期で取得するサンプルを作成します。
-
-
 
 # 環境
 
@@ -25,8 +24,6 @@ Nest.js で環境ごとにデータベースの接続先を分けるために、
 - Nest.js v6.7.2
 - TypeORM v0.2.22
 - PostgreSQL v11.6
-
-
 
 # 実装手順
 
@@ -38,7 +35,7 @@ Nest.js で環境ごとにデータベースの接続先を分けるために、
 
 TypeORM, Database Driver (PostgreSQL)をインストールする。
 
-```
+```bash
 $ npm install @nestjs/typeorm typeorm pg
 ```
 
@@ -47,30 +44,29 @@ $ npm install @nestjs/typeorm typeorm pg
 **app.module.ts**にデータベースの接続情報を定義する。
 
 ```tsx
-import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ItemModule } from './item/item.module';
-import { Connection } from 'typeorm';
-import { join } from 'path';
+import { Module } from "@nestjs/common";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { ItemModule } from "./item/item.module";
+import { Connection } from "typeorm";
+import { join } from "path";
 
 @Module({
   imports: [
     ItemModule,
     // DBの接続情報を定義
     TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'localhost',
+      type: "postgres",
+      host: "localhost",
       port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'postgres',
-      entities: [join(__dirname + '/**/*.entity{.ts,.js}')],
+      username: "postgres",
+      password: "postgres",
+      database: "postgres",
+      entities: [join(__dirname + "/**/*.entity{.ts,.js}")],
       synchronize: false,
     }),
   ],
 })
 export class AppModule {}
-
 ```
 
 一番シンプルな書き方です。自分一人しか触らず、環境もこれだけ！ということであればこの書き方で良いでしょう。
@@ -91,7 +87,7 @@ export class AppModule {}
 
 環境変数を参照するために必要なライブラリをインストールします。
 
-```typescript
+```bash
 $ npm install @nestjs/config
 ```
 
@@ -99,7 +95,7 @@ $ npm install @nestjs/config
 
 本来は、環境変数に定義するのですがサンプル実装なので環境変数ファイル（**.env**）をプロジェクトルートに作成します。
 
-```
+```env
 DATABASE_HOST=localhost
 DATABASE_PORT=5432
 DATABASE_USERNAME=postgres
@@ -110,16 +106,16 @@ DATABASE_NAME=postgres
 ### 環境変数を参照するように接続定義を修正
 
 ```tsx
-import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { Connection } from 'typeorm';
-import { join } from 'path';
+import { Module } from "@nestjs/common";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { ConfigModule, ConfigService } from "@nestjs/config";
+import { Connection } from "typeorm";
+import { join } from "path";
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: ".env",
       isGlobal: true,
       // ignoreEnvFile: true, <- 環境変数から取得する場合はコメントアウトを外す。
     }),
@@ -127,13 +123,13 @@ import { join } from 'path';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (configService: ConfigService) => ({
-        type: 'postgres' as 'postgres',
-        host: configService.get('DATABASE_HOST'),
-        port: Number(configService.get('DATABASE_HOST')),
-        username: configService.get('DATABASE_USERNAME'),
-        password: configService.get('DATABASE_PASSWORD'),
-        database: configService.get('DATABASE_NAME'),
-        entities: [join(__dirname + '/**/*.entity{.ts,.js}')],
+        type: "postgres" as "postgres",
+        host: configService.get("DATABASE_HOST"),
+        port: Number(configService.get("DATABASE_HOST")),
+        username: configService.get("DATABASE_USERNAME"),
+        password: configService.get("DATABASE_PASSWORD"),
+        database: configService.get("DATABASE_NAME"),
+        entities: [join(__dirname + "/**/*.entity{.ts,.js}")],
         synchronize: false,
       }),
       inject: [ConfigService],
@@ -143,12 +139,11 @@ import { join } from 'path';
 export class AppModule {
   constructor(private readonly connection: Connection) {}
 }
-
 ```
 
 起動後、以下のエラーが発生。
 
-```
+```bash
 2:25:34 PM - Found 0 errors. Watching for file changes.
 [Nest] 19111   - 01/13/2020, 2:25:35 PM   [NestFactory] Starting Nest application...
 [Nest] 19111   - 01/13/2020, 2:25:35 PM   [InstanceLoader] TypeOrmModule dependencies initialized +24ms
@@ -187,26 +182,22 @@ Potential solutions:
 
 同じような事象が Github の Issue にあがっていたので参考に載せておきます。
 
-
-
 [Can't init TypeOrmModule using factory and forRootAsync](https://github.com/nestjs/nest/issues/1119#)
-
-
 
 ## 【成功】環境変数を参照するように実装を修正
 
 **app.module.ts**を以下のように修正します。
 
 ```tsx
-import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule } from '@nestjs/config';
-import { TypeOrmConfigService } from './common/database/type-orm-config.service';
+import { Module } from "@nestjs/common";
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { ConfigModule } from "@nestjs/config";
+import { TypeOrmConfigService } from "./common/database/type-orm-config.service";
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.env',
+      envFilePath: ".env",
       isGlobal: true,
       // ignoreEnvFile: true, <- 環境変数から取得する場合はコメントアウトを外す。
     }),
@@ -217,24 +208,22 @@ import { TypeOrmConfigService } from './common/database/type-orm-config.service'
     }),
   ],
 })
-export class AppModule {
-}
+export class AppModule {}
 ```
 
-接続情報を作成するServiceクラスを生成します。
+接続情報を作成する Service クラスを生成します。
 
 ```tsx
-import { TypeOrmOptionsFactory, TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import { join } from 'path';
+import { TypeOrmOptionsFactory, TypeOrmModuleOptions } from "@nestjs/typeorm";
+import { Injectable } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
+import { join } from "path";
 
 /**
  * DBの接続情報を作成するServiceクラスです。
  */
 @Injectable()
 export class TypeOrmConfigService implements TypeOrmOptionsFactory {
-
   /**
    * DBの接続設定を環境変数をもとに作成します。
    * 環境変数に設定されていない場合は、デフォルトの設定値を返却します。
@@ -243,13 +232,13 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
   createTypeOrmOptions(): TypeOrmModuleOptions {
     const configService = new ConfigService();
     return {
-      type: 'postgres' as 'postgres',
-      host: configService.get('DATABASE_HOST', 'localhost'),
-      port: Number(configService.get('DATABASE_PORT', 5432)),
-      username: configService.get('DATABASE_USERNAME', 'postgres'),
-      password: configService.get('DATABASE_PASSWORD', 'postgres'),
-      database: 'postgres' as 'postgres',
-      entities: [join(__dirname + '../**/*.entity{.ts,.js}')],
+      type: "postgres" as "postgres",
+      host: configService.get("DATABASE_HOST", "localhost"),
+      port: Number(configService.get("DATABASE_PORT", 5432)),
+      username: configService.get("DATABASE_USERNAME", "postgres"),
+      password: configService.get("DATABASE_PASSWORD", "postgres"),
+      database: "postgres" as "postgres",
+      entities: [join(__dirname + "../**/*.entity{.ts,.js}")],
       synchronize: false,
     };
   }
@@ -258,16 +247,12 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
 
 `ConfigService`を DI するのではなく、自分で new するのがポイントです。
 
-
-
 # 最後に
 
 今回のサンプル実装はこちらの[リポジトリ](https://github.com/shukawam/nestjs-async-multiple-connection-settings)で公開しています。
 
 最近使い始めたのですが、素晴らしいフレームワークだとひしひしと感じております。
 フレームワーク自体の良さは[こちら](https://qiita.com/kmatae/items/5aacc8375f71105ce0e4)の記事で紹介されています。
-
-
 
 # 参考
 
