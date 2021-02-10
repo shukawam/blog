@@ -7,7 +7,7 @@ categories = ["tech"]
 draft = "false"
 [[images]]
   src = "img/2021/0206/helidon.jpg"
-  alt = ""
+  alt = "helidon.jpg"
   stretch = "stretchH"
 +++
 
