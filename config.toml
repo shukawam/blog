@@ -100,12 +100,12 @@ publishDir = "docs"
   #  pre               = "<i class='far fa-id-card'></i>"
   #  weight            = 2
 
-  [[menu.main]]
-    name              = "Article"
-    identifier        = "article"
-    url               = "https://shukawam.github.io/blog/article/"
-    pre               = "<i class='far fa-newspaper'></i>"
-    weight            = 3
+  # [[menu.main]]
+  #  name              = "Article"
+  #  identifier        = "article"
+  #  url               = "https://shukawam.github.io/blog/article/"
+  #  pre               = "<i class='far fa-newspaper'></i>"
+  #  weight            = 3
 
   # [[menu.main]]
   #  name              = "Categories"
