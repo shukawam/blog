@@ -101,9 +101,9 @@ publishDir = "docs"
   #  weight            = 2
 
   [[menu.main]]
-    name              = "Blog"
-    identifier        = "blog"
-    url               = "https://shukawam.github.io/blog/blog/"
+    name              = "Article"
+    identifier        = "article"
+    url               = "https://shukawam.github.io/blog/article/"
     pre               = "<i class='far fa-newspaper'></i>"
     weight            = 3
 

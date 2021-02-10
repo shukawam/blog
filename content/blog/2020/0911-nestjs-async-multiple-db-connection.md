@@ -9,7 +9,6 @@ draft = "false"
   src = "img/2020/0911/nestjs.png"
   alt = "Nest.js"
   stretch = "stretchH"
-
 +++
 
 # 始めに
