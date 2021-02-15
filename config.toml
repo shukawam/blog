@@ -5,7 +5,7 @@ DefaultContentLanguage  = "ja"
 title                   = "Shukawam's Daily Blog"
 theme                   = "hugo-future-imperfect-slim"
 paginate                = 3
-disqusShortname         = ""
+disqusShortname         = "shukawam"
 googleAnalytics         = ""
 pluralizeListTitles     = false
 disableLanguages        = []
@@ -72,7 +72,7 @@ publishDir = "docs"
     socialFooter        = true
 
   [params.staticman]
-    enabled             = true
+    enabled             = false
     api                 = "https://staticman3.herokuapp.com"  # No Trailing Slash
     gitProvider         = "github"
     username            = "shukawam"
