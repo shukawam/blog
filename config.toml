@@ -1,6 +1,6 @@
 # For a description of these parameters, please visit the theme wiki.
 # https://github.com/pacollins/hugo-future-imperfect-slim/wiki/config.toml
-baseurl                 = "https://shukawam.cf"
+baseurl                 = "https://shukawam.github.io/blog"
 DefaultContentLanguage  = "ja"
 title                   = "Shukawam's Daily Blog"
 theme                   = "hugo-future-imperfect-slim"
@@ -88,7 +88,7 @@ publishDir = "docs"
   [[menu.main]]
     name              = "Home"
     identifier        = "home"
-    url               = "https://shukawam.cf/"
+    url               = "https://shukawam.github.io/blog/"
     pre               = "<i class='fa fa-home'></i>"
     weight            = 1
 
@@ -96,21 +96,21 @@ publishDir = "docs"
   # [[menu.main]]
   #  name              = "About"
   #  identifier        = "about"
-  #  url               = "https://shukawam.cf/about/"
+  #  url               = "https://shukawam.github.io/blog/about/"
   #  pre               = "<i class='far fa-id-card'></i>"
   #  weight            = 2
 
   # [[menu.main]]
   #  name              = "Article"
   #  identifier        = "article"
-  #  url               = "https://shukawam.cf/article/"
+  #  url               = "https://shukawam.github.io/blog/article/"
   #  pre               = "<i class='far fa-newspaper'></i>"
   #  weight            = 3
 
   # [[menu.main]]
   #  name              = "Categories"
   #  identifier        = "categories"
-  #  url               = "https://shukawam.cf/categories/"
+  #  url               = "https://shukawam.github.io/blog/categories/"
   #  pre               = "<i class='fas fa-sitemap'></i>"
   #  weight            = 5
 
