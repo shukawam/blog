@@ -1,7 +1,7 @@
 +++
 title = "WebAuthn DeepDive #2 - Attestation"
 author = "Shuhei, Kawamura"
-date = "2021-04-04"
+date = "2021-04-05"
 tags = ["WebAuthn", "CTAP"]
 categories = ["tech"]
 draft = "false"
@@ -55,7 +55,7 @@ draft = "false"
 
 `attestationObject`は、CBOR[^1]で表現されており、W3C で仕様が公開されています。具体的には以下の通り。
 
-![attestation-object](http://localhost:1313/blog/img/2021/0404/attestation-object.png)
+![attestation-object](https://shukawam.github.io/blog/img/2021/0404/attestation-object.png)
 
 もう少し、開発者に分かりやすく JSON 形式で表現すると以下のようになる。
 
@@ -106,7 +106,7 @@ draft = "false"
 
 下図の赤枠でかこっている箇所の話です。
 
-![attested-credential-data](http://localhost:1313/blog/img/2021/0404/attested_credential_data.png)
+![attested-credential-data](https://shukawam.github.io/blog/img/2021/0404/attested_credential_data.png)
 
 `authData`内に含まれる Attested Credential Data は、以下のような構成になっています。
 
@@ -123,7 +123,7 @@ draft = "false"
 
 下図の赤枠でかこっている箇所の話です。
 
-![attStmt](http://localhost:1313/blog/img/2021/0404/att-stmt.png)
+![attStmt](https://shukawam.github.io/blog/img/2021/0404/att-stmt.png)
 
 何やら、FIDO2 認証ベンダーの秘密鍵によって生成された署名や証明書が含まれていそうです。きちんとプロパティを見ていくと、以下のようになっています。(今回は Basic の場合)
 
