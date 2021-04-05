@@ -49,7 +49,7 @@ publishDir = "docs"
 
   [params.intro]
     header                = "Shuhei, Kawamura"
-    paragraph             = "Solutions Engineer at @Oracle_Japan. Like music, snowboarding and cooking. All my opinions are my own."
+    paragraph             = "Solutions Engineer at @Oracle_Japan."
     rssIntro              = false
     socialIntro           = true
     hideWhenSingleColumn  = false
