@@ -2,7 +2,7 @@
 title = "WebAuthn DeepDive #1 - navigator.credentials.create()"
 author = "Shuhei, Kawamura"
 date = "2021-03-24"
-tags = ["WenAuthn", "CTAP"]
+tags = ["WebAuthn", "CTAP"]
 categories = ["tech"]
 draft = "false"
 [[images]]
