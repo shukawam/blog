@@ -22,16 +22,16 @@ FIDO2 をアプリケーションに組み込むときのちょっとした Tips
 まずは、Chrome の拡張機能の紹介です。組織のポリシーなどで会社支給のパソコンから`internal`の認証器が呼び出せないパターンもあるでしょう。例えば、デモやちょっとした検証をやりたいのにわざわざそのために USB セキュリティキーを買うのもちょっと馬鹿らしいですよね。そんな時に非常に役に立ちます。  
 使い方自体は非常に簡単で、まずは [chrome ウェブストア - Virtual Authenticators Tab](https://chrome.google.com/webstore/detail/virtual-authenticators-ta/gafbpmlmeiikmhkhiapjlfjgdioafmja?hl=JA)で当該機能を有効化する。
 
-![image01](http://localhost:1313/blog/img/2021/0406/image01.png)
+![image01](https://shukawam.github.io/blog/img/2021/0406/image01.png)
 
 **Virtual Authenticators Tab を追加しますか？** というポップアップが出てくるので、**拡張機能を追加** を押して追加する。
 
-![image02](http://localhost:1313/blog/img/2021/0406/image02.png)
+![image02](https://shukawam.github.io/blog/img/2021/0406/image02.png)
 
 確認には、おなじみの[webauthn.io](https://webauthn.io/)が良いと思います。  
 まずは、DevTool を開き追加されている**Virtual Authenticators**内にある**Enable Virtual Authenticator Environment**のチェックボックスにチェックを入れます。
 
-![image03](http://localhost:1313/blog/img/2021/0406/image03.png)
+![image03](https://shukawam.github.io/blog/img/2021/0406/image03.png)
 
 後は、お好きな仮想認証器を生成してください。一応、設定できるパラメータを解説すると
 
