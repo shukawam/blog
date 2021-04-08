@@ -44,4 +44,15 @@ Qiita, はてなブログじゃダメだった理由 Markdown で記載できる
 ホスティング先 ホスティング先には、いくつか条件がありました。
 無料で運用できること インフラ（サーバ）の面倒を見なくてもいいこと これらを加味した結果、ホスティング先は GitHub Pages or GitLab Pages に絞られました。最初は、Hugo によって生成されるコンテンツを管理したくなかったので、GitLab Pages にしようと思っていましたが、個人的に GitLab から GitHub に移行したばかりだったので少し微妙だなと思ったことをツイートしたのですが、こんな回答をいただけました。
 docs/ を管理する方法以外に、任意のブランチをデプロイに使う方法があります。参考になれば幸いです。
-&amp;gt; Deploy Hugo site to GitHub Pages with GitHub Actionshttps://t.</description></item></channel></rss>
+&amp;gt; Deploy Hugo site to GitHub Pages with GitHub Actionshttps://t.</description></item><item><title/><link>https://shukawam.github.io/blog/qiita/get-started-fido2-with-idcs/get-started-fido2-with-idcs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://shukawam.github.io/blog/qiita/get-started-fido2-with-idcs/get-started-fido2-with-idcs/</guid><description>始めに FIDO2 による認証を Oracle の Identity Provider である IDCS(Oracle Identity Provider Service)を使ってさくっと作ってみます。IDCS は、Always Free でも触ることができるので是非試してみてください！
+環境 構成図にも記載していますが、今回は
+Authenticator: Yubikey Client: IDCS 提供の画面 + α(認証成功後にリダイレクトされる画面等) Relying Party: Oracle Identity Cloud Service という構成となっています。手元に認証器がない方は、Chrome の拡張の Virtual Authenticators Tab で代用可能です。
+手順 IDCS のセットアップ Service Request を申請する OCI 契約時に自動的に含まれている IDCS では、FIDO Authenticator を使用したパスワードレス認証／MFA を使用することができないので、Service Request を申請し、機能の制限を解除してもらう必要があります。
+詳しくはこちらをご参照ください。
+Manage Passwordless Authentication
+Group を作成する まずは、登録したユーザーが所属するグループを作成します。
+管理コンソールから、グループ &amp;gt; 追加を押下し、グループを新しく作成します。
+作成するグループは以下のよう。
+現時点では、ユーザーを所属させる必要はないので、このまま終了を押し、グループの作成を完了させます。
+自己登録プロファイルを作成する ユーザーのセルフサインアップを行うために、自己登録プロファイルを作成します。
+管理コンソールから、設定 &amp;gt; 自己登録 &amp;gt; 追加を押下し、グループを新しく作成します。</description></item></channel></rss>
