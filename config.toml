@@ -50,7 +50,7 @@ publishDir = "docs"
   [params.intro]
     header                = "Shuhei, Kawamura"
     paragraph             = "Solutions Engineer at @Oracle_Japan."
-    rssIntro              = false
+    rssIntro              = true
     socialIntro           = true
     hideWhenSingleColumn  = false
     alwaysOnHomepage      = false
@@ -68,7 +68,7 @@ publishDir = "docs"
     categoriesByCount   = true
 
   [params.footer]
-    rssFooter           = false
+    rssFooter           = true
     socialFooter        = true
 
   [params.staticman]
