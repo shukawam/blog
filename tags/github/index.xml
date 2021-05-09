@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>github on Shukawam's Daily Blog</title><link>https://shukawam.github.io/blog/tags/github/</link><description>Recent content in github on Shukawam's Daily Blog</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 08 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://shukawam.github.io/blog/tags/github/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugo + GitHub Pagesでブログを始めた</title><link>https://shukawam.github.io/blog/blog/2020/0909-about-this-blog/</link><pubDate>Tue, 08 Sep 2020 00:00:00 +0000</pubDate><guid>https://shukawam.github.io/blog/blog/2020/0909-about-this-blog/</guid><description>始めに つい先日、Qiita からはてなブログに移行したばかりだったのですが、個人的に何点か気に食わない点があったので自分で作って運用してみることにしました。 この記事は実際にブログを作ってみた時のお話です。
+このブログについて 環境 静的サイトジェネレーター：Hugo Static Site Generator v0.74.3 運用（ホスティング）：GitHub Pages という環境で、作成し運用されています。
+選定理由 いくつか背景があるので、順にお話します。
+Qiita, はてなブログじゃダメだった理由 Markdown で記載できるブログあるあるだと思うのですが、とにかく画像のアップロードがめんどくさい。他にも、デザインが気に食わなかったりなど細かい理由はありますが、理由の 9 割はこれでした。自分のメモ、ついでに外部発信くらいと考えてる人にとってはなるべく省エネで執筆したかったのです。
+静的サイトジェネレーター このブログは、Golang 謹製のHugoを使用して作成しています。Hugo 以外の有名どころだと、Gatsby, Hexo, Jekyll etc &amp;hellip; 辺りがありますが、正直何でも良かったです。環境構築が非常に楽という噂を聞きつけたので、Hugo を採用しました。（他のものは試してすらないです）実際、私の PC は Windows 10 なのですが、環境構築～このブログを作成するまで 1 時間程度でできました。
+ホスティング先 ホスティング先には、いくつか条件がありました。
+無料で運用できること インフラ（サーバ）の面倒を見なくてもいいこと これらを加味した結果、ホスティング先は GitHub Pages or GitLab Pages に絞られました。最初は、Hugo によって生成されるコンテンツを管理したくなかったので、GitLab Pages にしようと思っていましたが、個人的に GitLab から GitHub に移行したばかりだったので少し微妙だなと思ったことをツイートしたのですが、こんな回答をいただけました。
+docs/ を管理する方法以外に、任意のブランチをデプロイに使う方法があります。参考になれば幸いです。
+&amp;gt; Deploy Hugo site to GitHub Pages with GitHub Actionshttps://t.</description></item></channel></rss>

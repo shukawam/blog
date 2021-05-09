@@ -1,0 +1,133 @@
+<!doctype html><html lang=en-us><head><title>Spring Native Getting Started // Shukawam's Daily Blog</title><link rel="shortcut icon" href=/favicon.ico><meta charset=utf-8><meta name=generator content="Hugo 0.74.2"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=author content="Shuhei Kawamura"><meta name=description content><link rel=stylesheet href=https://shukawam.github.io/blog/css/main.min.4a7ec8660f9a44b08c4da97c5f2e31b1192df1d4d0322e65c0dbbc6ecb1b863f.css><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content><meta name=twitter:title content="Spring Native Getting Started"><meta name=twitter:description content="始めに Spring Nativeを使って、Spring Boot アプリケーションを Native Image 化してみます。
+手順 Spring Initializr を使用してひな形を作成します。今回は、Helath Check のエンドポイントを一つ有するアプリケーションを作成します。
+curl -G https://start.spring.io/starter.zip -o spring-boot-native-image-sample.zip -d javaVersion=11 -d dependencies=web,actuator,native % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed 100 57164 100 57164 0 0 106k 0 --:--:-- --:--:-- --:--:-- 106k 解凍します。
+unzip spring-boot-native-image-sample.zip -d spring-boot-native-image Archive: spring-boot-native-image-sample.zip inflating: spring-boot-native-image/.gitignore inflating: spring-boot-native-image/HELP.md inflating: spring-boot-native-image/mvnw creating: spring-boot-native-image/src/ creating: spring-boot-native-image/src/main/ creating: spring-boot-native-image/src/main/java/ creating: spring-boot-native-image/src/main/java/com/ creating: spring-boot-native-image/src/main/java/com/example/ creating: spring-boot-native-image/src/main/java/com/example/demo/ inflating: spring-boot-native-image/src/main/java/com/example/demo/DemoApplication."><meta property="og:title" content="Spring Native Getting Started"><meta property="og:description" content="始めに Spring Nativeを使って、Spring Boot アプリケーションを Native Image 化してみます。
+手順 Spring Initializr を使用してひな形を作成します。今回は、Helath Check のエンドポイントを一つ有するアプリケーションを作成します。
+curl -G https://start.spring.io/starter.zip -o spring-boot-native-image-sample.zip -d javaVersion=11 -d dependencies=web,actuator,native % Total % Received % Xferd Average Speed Time Time Time Current Dload Upload Total Spent Left Speed 100 57164 100 57164 0 0 106k 0 --:--:-- --:--:-- --:--:-- 106k 解凍します。
+unzip spring-boot-native-image-sample.zip -d spring-boot-native-image Archive: spring-boot-native-image-sample.zip inflating: spring-boot-native-image/.gitignore inflating: spring-boot-native-image/HELP.md inflating: spring-boot-native-image/mvnw creating: spring-boot-native-image/src/ creating: spring-boot-native-image/src/main/ creating: spring-boot-native-image/src/main/java/ creating: spring-boot-native-image/src/main/java/com/ creating: spring-boot-native-image/src/main/java/com/example/ creating: spring-boot-native-image/src/main/java/com/example/demo/ inflating: spring-boot-native-image/src/main/java/com/example/demo/DemoApplication."><meta property="og:type" content="article"><meta property="og:url" content="https://shukawam.github.io/blog/blog/2021/0322-spring-boot-native-image/"><meta property="og:image" content><meta property="article:published_time" content="2021-03-22T00:00:00+00:00"><meta property="article:modified_time" content="2021-03-22T00:00:00+00:00"></head><body><header class=app-header><a href=https://shukawam.github.io/blog><img class=app-header-avatar src=/blog/avatar.jpg alt="Shuhei Kawamura"></a><h1>Shukawam's Daily Blog</h1><nav class=app-header-menu><a class=app-header-menu-item href=/blog/>Home</a>
+-
+<a class=app-header-menu-item href=/blog/tags/>Tags</a></nav><p>I'm Solutions Engineer at Oracle Japan. These articles are just my opinions.</p><div class=app-header-social><a href=https://github.com/shukawam target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github"><title>Github</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37.0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44.0 0020 4.77 5.07 5.07.0 0019.91 1S18.73.65 16 2.48a13.38 13.38.0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07.0 005 4.77a5.44 5.44.0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37.0 009 18.13V22"/></svg></a><a href=https://twitter.com/shukawam target=_blank rel="noreferrer noopener"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter"><title>Twitter</title><path d="M23 3a10.9 10.9.0 01-3.14 1.53 4.48 4.48.0 00-7.86 3v1A10.66 10.66.0 013 4s-4 9 5 13a11.64 11.64.0 01-7 2c9 5 20 0 20-11.5a4.5 4.5.0 00-.08-.83A7.72 7.72.0 0023 3z"/></svg></a></div></header><main class=app-container><article class=post><header class=post-header><h1 class=post-title>Spring Native Getting Started</h1><div class=post-meta><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar"><title>calendar</title><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Mar 22, 2021</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock"><title>clock</title><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>5 min read</div><div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag"><title>tag</title><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg><a class=tag href=https://shukawam.github.io/blog/tags/java/>java</a>
+<a class=tag href=https://shukawam.github.io/blog/tags/spring/>Spring</a>
+<a class=tag href=https://shukawam.github.io/blog/tags/graalvm/>GraalVM</a></div></div></header><div class=post-content><h1 id=始めに>始めに</h1><p><a href=https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/>Spring Native</a>を使って、Spring Boot アプリケーションを Native Image 化してみます。</p><h1 id=手順>手順</h1><p><a href=https://start.spring.io/>Spring Initializr</a> を使用してひな形を作成します。今回は、Helath Check のエンドポイントを一つ有するアプリケーションを作成します。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl -G https://start.spring.io/starter.zip -o spring-boot-native-image-sample.zip -d javaVersion<span style=color:#f92672>=</span><span style=color:#ae81ff>11</span> -d dependencies<span style=color:#f92672>=</span>web,actuator,native
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+<span style=color:#ae81ff>100</span> <span style=color:#ae81ff>57164</span>  <span style=color:#ae81ff>100</span> <span style=color:#ae81ff>57164</span>    <span style=color:#ae81ff>0</span>     <span style=color:#ae81ff>0</span>   106k      <span style=color:#ae81ff>0</span> --:--:-- --:--:-- --:--:--  106k
+</code></pre></div><p>解凍します。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>unzip spring-boot-native-image-sample.zip -d spring-boot-native-image
+Archive:  spring-boot-native-image-sample.zip
+  inflating: spring-boot-native-image/.gitignore
+  inflating: spring-boot-native-image/HELP.md
+  inflating: spring-boot-native-image/mvnw
+   creating: spring-boot-native-image/src/
+   creating: spring-boot-native-image/src/main/
+   creating: spring-boot-native-image/src/main/java/
+   creating: spring-boot-native-image/src/main/java/com/
+   creating: spring-boot-native-image/src/main/java/com/example/
+   creating: spring-boot-native-image/src/main/java/com/example/demo/
+  inflating: spring-boot-native-image/src/main/java/com/example/demo/DemoApplication.java
+   creating: spring-boot-native-image/src/main/resources/
+   creating: spring-boot-native-image/src/main/resources/templates/
+   creating: spring-boot-native-image/src/main/resources/static/
+  inflating: spring-boot-native-image/src/main/resources/application.properties
+   creating: spring-boot-native-image/src/test/
+   creating: spring-boot-native-image/src/test/java/
+   creating: spring-boot-native-image/src/test/java/com/
+   creating: spring-boot-native-image/src/test/java/com/example/
+   creating: spring-boot-native-image/src/test/java/com/example/demo/
+  inflating: spring-boot-native-image/src/test/java/com/example/demo/DemoApplicationTests.java
+   creating: spring-boot-native-image/.mvn/
+   creating: spring-boot-native-image/.mvn/wrapper/
+  inflating: spring-boot-native-image/.mvn/wrapper/maven-wrapper.jar
+  inflating: spring-boot-native-image/.mvn/wrapper/MavenWrapperDownloader.java
+  inflating: spring-boot-native-image/.mvn/wrapper/maven-wrapper.properties
+  inflating: spring-boot-native-image/pom.xml
+  inflating: spring-boot-native-image/mvnw.cmd
+</code></pre></div><p>Native Image を生成します。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>cd spring-boot-native-image/
+mvn spring-boot:build-image
+</code></pre></div><p>しばらく待つと、Docker Image が生成される。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker images | grep demo
+demo                            0.0.1-SNAPSHOT      4c417a6969fa   <span style=color:#ae81ff>41</span> years ago        90MB
+</code></pre></div><p>ちなみに、CREATED が 41 years ago になるのは仕様らしいです。(ちょっと気持ち悪い)</p><p>ref: <a href=https://stackoverflow.com/questions/62865594/spring-boot-2-3-0-buildpack-builds-image-with-creation-date-40-years-ago>https://stackoverflow.com/questions/62865594/spring-boot-2-3-0-buildpack-builds-image-with-creation-date-40-years-ago</a></p><blockquote><p>This is expected. In order to create reproducible builds (i.e. so that layers can be reused) the buildpack must create layers with a fixed time stamp. Otherwise, you wouldn’t be able to reuse the layers you created in previous builds because they would have different time stamps.</p></blockquote><p>また、比較のために Fat JAR の Docker Image も生成しておきます。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker build -t shukawam/spring-boot-fat-jar:v1.0 -f Dockerfile ./
+docker images | grep shukawam/spring-boot-fat-jar
+shukawam/spring-boot-fat-jar    v1.0                ccf63974666c   <span style=color:#ae81ff>31</span> seconds ago      239MB
+</code></pre></div><p>両方とも起動の時間を確認してみます。まずは、Fat JAR から。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker run --rm -p 8080:8080 shukawam/spring-boot-fat-jar:v1.0
+2021-03-23 09:46:02.644  INFO <span style=color:#ae81ff>1</span> --- <span style=color:#f92672>[</span>           main<span style=color:#f92672>]</span> o.s.nativex.NativeListener               : This application is bootstrapped with code generated with Spring AOT
+
+  .   ____          _            __ _ _
+ /<span style=color:#ae81ff>\\</span> / ___<span style=color:#e6db74>&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+</span><span style=color:#e6db74>( ( )\___ | &#39;</span>_ | <span style=color:#e6db74>&#39;_| | &#39;</span>_ <span style=color:#ae81ff>\/</span> _<span style=color:#e6db74>`</span> | <span style=color:#ae81ff>\ \ \ \
+</span><span style=color:#ae81ff></span> <span style=color:#ae81ff>\\</span>/  ___<span style=color:#f92672>)</span>| |_<span style=color:#f92672>)</span>| | | | | <span style=color:#f92672>||</span> <span style=color:#f92672>(</span>_| |  <span style=color:#f92672>)</span> <span style=color:#f92672>)</span> <span style=color:#f92672>)</span> <span style=color:#f92672>)</span>
+  <span style=color:#e6db74>&#39;  |____| .__|_| |_|_| |_\__, | / / / /
+</span><span style=color:#e6db74> =========|_|==============|___/=/_/_/_/
+</span><span style=color:#e6db74> :: Spring Boot ::                (v2.4.4)
+</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>2021-03-23 09:46:02.737  INFO 1 --- [           main] com.example.demo.DemoApplication         : Starting DemoApplication v0.0.1-SNAPSHOT using Java 11.0.10 on 2e42d385fb33 with PID 1 (/spring-boot/demo-0.0.1-SNAPSHOT.jar started by root in /spring-boot)
+</span><span style=color:#e6db74>2021-03-23 09:46:02.738  INFO 1 --- [           main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+</span><span style=color:#e6db74>2021-03-23 09:46:03.933  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+</span><span style=color:#e6db74>2021-03-23 09:46:03.945  INFO 1 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+</span><span style=color:#e6db74>2021-03-23 09:46:03.945  INFO 1 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.44]
+</span><span style=color:#e6db74>2021-03-23 09:46:04.002  INFO 1 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+</span><span style=color:#e6db74>2021-03-23 09:46:04.002  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1204 ms
+</span><span style=color:#e6db74>2021-03-23 09:46:04.578  INFO 1 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService &#39;</span>applicationTaskExecutor<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>2021-03-23 09:46:04.819  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path &#39;</span>/actuator<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>2021-03-23 09:46:04.865  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path &#39;&#39;
+</span><span style=color:#e6db74>2021-03-23 09:46:04.879  INFO 1 --- [           main] com.example.demo.DemoApplication         : Started DemoApplication in 2.605 seconds (JVM running for 3.05)
+</span><span style=color:#e6db74>2021-03-23 09:46:10.908  INFO 1 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet &#39;</span>dispatcherServlet<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>2021-03-23 09:46:10.909  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &#39;</span>dispatcherServlet<span style=color:#960050;background-color:#1e0010>&#39;</span>
+2021-03-23 09:46:10.910  INFO <span style=color:#ae81ff>1</span> --- <span style=color:#f92672>[</span>nio-8080-exec-1<span style=color:#f92672>]</span> o.s.web.servlet.DispatcherServlet        : Completed initialization in <span style=color:#ae81ff>1</span> ms
+</code></pre></div><p>JVM が起動してから大体 2.6 秒です。お次に、Native Image 版。</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>docker run -p 8080:8080 docker.io/library/demo:0.0.1-SNAPSHOT
+2021-03-23 09:47:57.657  INFO <span style=color:#ae81ff>1</span> --- <span style=color:#f92672>[</span>           main<span style=color:#f92672>]</span> o.s.nativex.NativeListener               : This application is bootstrapped with code generated with Spring AOT
+
+  .   ____          _            __ _ _
+ /<span style=color:#ae81ff>\\</span> / ___<span style=color:#e6db74>&#39;_ __ _ _(_)_ __  __ _ \ \ \ \
+</span><span style=color:#e6db74>( ( )\___ | &#39;</span>_ | <span style=color:#e6db74>&#39;_| | &#39;</span>_ <span style=color:#ae81ff>\/</span> _<span style=color:#e6db74>`</span> | <span style=color:#ae81ff>\ \ \ \
+</span><span style=color:#ae81ff></span> <span style=color:#ae81ff>\\</span>/  ___<span style=color:#f92672>)</span>| |_<span style=color:#f92672>)</span>| | | | | <span style=color:#f92672>||</span> <span style=color:#f92672>(</span>_| |  <span style=color:#f92672>)</span> <span style=color:#f92672>)</span> <span style=color:#f92672>)</span> <span style=color:#f92672>)</span>
+  <span style=color:#e6db74>&#39;  |____| .__|_| |_|_| |_\__, | / / / /
+</span><span style=color:#e6db74> =========|_|==============|___/=/_/_/_/
+</span><span style=color:#e6db74> :: Spring Boot ::                (v2.4.4)
+</span><span style=color:#e6db74>
+</span><span style=color:#e6db74>2021-03-23 09:47:57.658  INFO 1 --- [           main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 11.0.10 on 26edf77d8c85 with PID 1 (/workspace/com.example.demo.DemoApplication started by cnb in /workspace)
+</span><span style=color:#e6db74>2021-03-23 09:47:57.658  INFO 1 --- [           main] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+</span><span style=color:#e6db74>2021-03-23 09:47:57.697  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+</span><span style=color:#e6db74>Mar 23, 2021 9:47:57 AM org.apache.coyote.AbstractProtocol init
+</span><span style=color:#e6db74>INFO: Initializing ProtocolHandler [&#34;http-nio-8080&#34;]
+</span><span style=color:#e6db74>Mar 23, 2021 9:47:57 AM org.apache.catalina.core.StandardService startInternal
+</span><span style=color:#e6db74>INFO: Starting service [Tomcat]
+</span><span style=color:#e6db74>Mar 23, 2021 9:47:57 AM org.apache.catalina.core.StandardEngine startInternal
+</span><span style=color:#e6db74>INFO: Starting Servlet engine: [Apache Tomcat/9.0.44]
+</span><span style=color:#e6db74>Mar 23, 2021 9:47:57 AM org.apache.catalina.core.ApplicationContext log
+</span><span style=color:#e6db74>INFO: Initializing Spring embedded WebApplicationContext
+</span><span style=color:#e6db74>2021-03-23 09:47:57.699  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 41 ms
+</span><span style=color:#e6db74>2021-03-23 09:47:57.701  WARN 1 --- [           main] i.m.c.i.binder.jvm.JvmGcMetrics          : GC notifications will not be available because MemoryPoolMXBeans are not provided by the JVM
+</span><span style=color:#e6db74>2021-03-23 09:47:57.714  INFO 1 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService &#39;</span>applicationTaskExecutor<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>2021-03-23 09:47:57.726  INFO 1 --- [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path &#39;</span>/actuator<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>Mar 23, 2021 9:47:57 AM org.apache.coyote.AbstractProtocol start
+</span><span style=color:#e6db74>INFO: Starting ProtocolHandler [&#34;http-nio-8080&#34;]
+</span><span style=color:#e6db74>2021-03-23 09:47:57.728  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path &#39;&#39;
+</span><span style=color:#e6db74>2021-03-23 09:47:57.729  INFO 1 --- [           main] com.example.demo.DemoApplication         : Started DemoApplication in 0.076 seconds (JVM running for 0.077)
+</span><span style=color:#e6db74>Mar 23, 2021 9:48:01 AM org.apache.catalina.core.ApplicationContext log
+</span><span style=color:#e6db74>INFO: Initializing Spring DispatcherServlet &#39;</span>dispatcherServlet<span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>2021-03-23 09:48:01.198  INFO 1 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet &#39;</span>dispatcherServlet<span style=color:#960050;background-color:#1e0010>&#39;</span>
+2021-03-23 09:48:01.198  INFO <span style=color:#ae81ff>1</span> --- <span style=color:#f92672>[</span>nio-8080-exec-1<span style=color:#f92672>]</span> o.s.web.servlet.DispatcherServlet        : Completed initialization in <span style=color:#ae81ff>0</span> ms
+</code></pre></div><p>ログには、<code>Started DemoApplication in 0.076 seconds (JVM running for 0.077)</code>と書いてありますが、内部では JVM の起動を介さずに直接 Machine Code が実行されているので、少し誤解を生んでしまうログ出力かもしれません。細かいことは置いておいて、起動に要した時間は大体 0.07 秒といった所です。Fat JAR に比べると 37 倍も速いですね。また、イメージの容量に関しても 1/2 以下となっています。</p><h2 id=おまけ>おまけ</h2><p>Fat JAR 生成に使用した Dockerfile は以下</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-Dockerfile data-lang=Dockerfile><span style=color:#75715e># 1st stage, build the app</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>FROM</span><span style=color:#e6db74> maven:3.6-jdk-11 as build</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>WORKDIR</span><span style=color:#e6db74> /spring-boot</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e># Create a first layer to cache the &#34;Maven World&#34; in the local repository.</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e># Incremental docker builds will always resume after that, unless you update</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e># the pom</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>ADD</span> pom.xml .<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>ADD</span> src src<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>RUN</span> mvn package<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e># 2nd stage, build the runtime image</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>FROM</span><span style=color:#e6db74> openjdk:11-jre-slim</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>WORKDIR</span><span style=color:#e6db74> /spring-boot</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e># Copy the binary built in the 1st stage</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>COPY</span> --from<span style=color:#f92672>=</span>build /spring-boot/target/demo-0.0.1-SNAPSHOT.jar ./<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>CMD</span> [<span style=color:#e6db74>&#34;java&#34;</span>, <span style=color:#e6db74>&#34;-jar&#34;</span>, <span style=color:#e6db74>&#34;demo-0.0.1-SNAPSHOT.jar&#34;</span>]<span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010>
+</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>EXPOSE</span><span style=color:#e6db74> 8080</span><span style=color:#960050;background-color:#1e0010>
+</span></code></pre></div><h1 id=終わりに>終わりに</h1><p>FaaS 上で Spring アプリケーションが動く日もそんな遠い話じゃないかもなと感じました。(プラットフォームが GraalVM をサポートしていればの話ですが)
+ちなみに、サポートについては<a href=https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/#support>Spring Native - 3. Support</a>を参照すると、どのコンポーネントが対応／非対応かが記されています。</p><h1 id=参考>参考</h1><ul><li><a href=https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/>Spring Native documentation</a></li></ul></div><div class=post-footer></div></article></main></body></html>
