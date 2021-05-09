@@ -19,6 +19,7 @@ paginate = 8
 [params]
   author = "Shuhei Kawamura"
   description = "I'm Solutions Engineer at Oracle Japan. These articles are just my opinions."
+  avatar = "/img/main/shukawam.jpg"
   menu_item_separator = " - "
   [[params.social]]
     icon = "github"
