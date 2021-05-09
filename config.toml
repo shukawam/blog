@@ -1,175 +1,54 @@
-# For a description of these parameters, please visit the theme wiki.
-# https://github.com/pacollins/hugo-future-imperfect-slim/wiki/config.toml
-baseurl                 = "https://shukawam.github.io/blog"
-DefaultContentLanguage  = "ja"
-title                   = "Shukawam's Daily Blog"
-theme                   = "hugo-future-imperfect-slim"
-paginate                = 3
-disqusShortname         = "shukawam"
-googleAnalytics         = ""
-pluralizeListTitles     = false
-disableLanguages        = []
-publishDir = "docs"
-
-[markup.goldmark.renderer]
-  unsafe                = true
-
-[outputs]
-  home                  = ["html", "json", "rss"]
-
-[params]
-  enableCDN             = false
-  cssFiles              = ["default"]
-  jsFiles               = ["default"]
-  highlightjs           = true
-  highlightjsTheme      = ""
-  highlightjsLang       = []
-  viewMorePostsLink     = ""
-  readingTime           = true
-  imageStretch          = ""
-  removeBlur            = false
-  socialShare           = ["twitter", "facebook", "linkedin"]
-  hideEmptyStats        = false
-
-  [params.meta]
-    description         = "Shukawam's Daily Blog."
-    author              = "Shuhei, Kawamura"
-    favicon             = true
-    svg                 = true
-    faviconVersion      = "1"
-    msColor             = "#ffffff"
-    iOSColor            = "#ffffff"
-
-  [params.header]
-    navbarTitle         = "Shukawam's Daily Blog"
-    dynamicTitles       = true
-    searchMenu          = true
-    shareMenu           = true
-    languageMenu        = true
-
-  [params.intro]
-    header                = "Shuhei, Kawamura"
-    paragraph             = "Solutions Engineer at @Oracle_Japan."
-    rssIntro              = true
-    socialIntro           = true
-    hideWhenSingleColumn  = false
-    alwaysOnHomepage      = false
-
-    [params.intro.pic]
-      src                 = "img/main/shukawam.jpg"
-      shape               = "circle"
-      width               = ""
-      alt                 = "Shuhei, Kawamura"
-
-  [params.sidebar]
-    about               = ""
-    postAmount          = 5
-    categories          = true
-    categoriesByCount   = true
-
-  [params.footer]
-    rssFooter           = true
-    socialFooter        = true
-
-  [params.staticman]
-    enabled             = false
-    api                 = "https://staticman3.herokuapp.com"  # No Trailing Slash
-    gitProvider         = "github"
-    username            = "shukawam"
-    repo                = "blog"
-    branch              = "master"
-
-    [params.staticman.recaptcha]
-      siteKey           = ""
-      encryptedKey      = ""
+baseURL = "https://shukawam.github.io/blog"
+title = "Shukawam's Daily Blog"
+themesDir = "./themes/"
+theme = "m10c"
+paginate = 8
 
 [menu]
-
   [[menu.main]]
-    name              = "Home"
-    identifier        = "home"
-    url               = "https://shukawam.github.io/blog/"
-    pre               = "<i class='fa fa-home'></i>"
-    weight            = 1
+    identifier = "home"
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
 
-  # CVとか載せる事になったら、使用する
-  # [[menu.main]]
-  #  name              = "About"
-  #  identifier        = "about"
-  #  url               = "https://shukawam.github.io/blog/about/"
-  #  pre               = "<i class='far fa-id-card'></i>"
-  #  weight            = 2
+[params]
+  author = "Shuhei Kawamura"
+  description = "I'm Solutions Engineer at Oracle Japan. These articles are just my opinions."
+  menu_item_separator = " - "
+  [[params.social]]
+    icon = "github"
+    name = "Github"
+    url = "https://github.com/shukawam"
+  [[params.social]]
+    icon = "twitter"
+    name = "Twitter"
+    url = "https://twitter.com/shukawam"
 
-  # [[menu.main]]
-  #  name              = "Article"
-  #  identifier        = "article"
-  #  url               = "https://shukawam.github.io/blog/article/"
-  #  pre               = "<i class='far fa-newspaper'></i>"
-  #  weight            = 3
+  # Default theme
+  [params.style]
+    darkestColor = "#242930"
+    darkColor = "#353b43"
+    lightColor = "#afbac4"
+    lightestColor = "#ffffff"
+    primaryColor = "#57cc8a"
 
-  # [[menu.main]]
-  #  name              = "Categories"
-  #  identifier        = "categories"
-  #  url               = "https://shukawam.github.io/blog/categories/"
-  #  pre               = "<i class='fas fa-sitemap'></i>"
-  #  weight            = 5
+  # Green theme
+  #[params.style]
+  #  darkestColor = "#315659"
+  #  darkColor = "#253031"
+  #  lightColor = "#96a879"
+  #  lightestColor = "#fff"
+  #  primaryColor = "#dad865"
 
-[Languages]
-  # [Languages.en]
-  #  LanguageCode        = "en"
-  #  LanguageName        = "English"
-  #  weight              = 1
-  [Languages.ja]
-    LanguageCode        = "ja"
-    LanguageName        = "日本語"
-    weight              = 9
-
-[social]
-  # Coding Communities
-  github                = "shukawam"
-  # gitlab                = "s.kawamura"
-  stackoverflow         = "" # User Number
-  bitbucket             = ""
-  jsfiddle              = ""
-  codepen               = ""
-  # Visual Art Communities
-  deviantart            = ""
-  flickr                = ""
-  behance               = ""
-  dribbble              = ""
-  # Publishing Communities
-  wordpress             = ""
-  medium                = ""
-  # Professional/Business Oriented Communities
-  # linkedin              = "shuhei-kawamura-0190a21a5"
-  linkedin_company      = ""
-  foursquare            = ""
-  xing                  = ""
-  slideshare            = ""
-  # Social Networks
-  facebook              = ""
-  googleplus            = ""
-  reddit                = ""
-  quora                 = ""
-  youtube               = ""
-  vimeo                 = ""
-  whatsapp              = "" # WhatsApp Number
-    # WeChat and QQ need testing.
-    wechat              = ""
-    qq                  = "" # User ID Number
-  instagram             = ""
-  tumblr                = ""
-  twitter               = "shukawam"
-  strava                = ""
-  skype                 = ""
-  snapchat              = ""
-  pinterest             = ""
-  telegram              = ""
-  vine                  = ""
-  googlescholar         = ""
-  orcid                 = ""
-  researchgate          = ""
-  keybase               = ""
-  mastodon              = ""
-  # Email
-  # email                 = "s001.kawamura@gmail.com"
+  # Red theme
+  #[params.style]
+  #  darkestColor = "#d35050"
+  #  darkColor = "#212121"
+  #  lightColor = "#d6d6d6"
+  #  lightestColor = "#d3d3d3"
+  #  primaryColor = "#ffffff"
