@@ -1,5 +1,8 @@
 table {
   border-collapse: collapse;
+  display: block;
+  overflow: auto;
+  margin: 1.5em 0;
 }
 
 th,
@@ -7,6 +10,14 @@ td {
   text-align: left;
   padding: 8px 10px;
   border: 1px solid #ddd;
+}
+
+th {
+  background-color: #fff;
+}
+
+tr:nth-child(odd) {
+  background-color: #eee;
 }
 
 blockquote {
