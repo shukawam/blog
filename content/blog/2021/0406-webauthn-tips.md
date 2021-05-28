@@ -56,6 +56,15 @@ FIDO2 をアプリケーションに組み込むときのちょっとした Tips
 - Supports User Verification
   - 認証器の持つ本人確認機能を有効にするかどうか
 
+## FIDO2 のデモサイト
+
+※2021/05/28 追記
+
+Auth0 が作成しているデモサイトが**かなり**良かったのでその紹介です。([https://webauthn.me/](https://webauthn.me/))  
+FIDO2 の一連のフローが視覚的に分かりやすく整理されています。下手なデモを作成するよりはフローを紹介した後、このサイトに誘導する方が理解度は高まるかもしれない。
+
+![https://shukawam.guthub.io/blog/img/2021/0406/image04.png](https://shukawam.guthub.io/blog/img/2021/0406/image04.png)
+
 # Considering
 
 ## ユーザーの負担
