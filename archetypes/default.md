@@ -5,10 +5,6 @@ date = ""
 tags = []
 categories = []
 draft = "true"
-[[images]]
-  src = ""
-  alt = ""
-  stretch = "stretchH"
 +++
 
 # 始めに
