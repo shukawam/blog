@@ -4,7 +4,7 @@ author = "Shuhei, Kawamura"
 date = "2021-04-08"
 tags = ["OCI", "Functions", "Java"]
 categories = ["tech"]
-draft = "false"
+draft = "true"
 [[images]]
   src = "img/2021/0408/89783130b95d3802.jpg"
   alt = "89783130b95d3802.jpg"

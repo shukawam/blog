@@ -1,7 +1,7 @@
 baseURL = "https://shukawam.github.io/blog"
 title = "Shukawam's Daily Blog"
 themesDir = "./themes/"
-theme = "hugo-theme-m10c"
+theme = "my-hugo-theme-m10c"
 paginate = 8
 googleAnalytics = "G-4W6XCC73C8"
 

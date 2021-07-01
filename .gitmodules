@@ -4,3 +4,9 @@
 [submodule "themes/hugo-theme-m10c"]
 	path = themes/hugo-theme-m10c
 	url = https://github.com/vaga/hugo-theme-m10c.git
+[submodule "theme/hugo-theme-m10c"]
+	path = theme/hugo-theme-m10c
+	url = https://github.com/shukawam/hugo-theme-m10c
+[submodule "themes/my-hugo-theme-m10c"]
+	path = themes/my-hugo-theme-m10c
+	url = https://github.com/shukawam/hugo-theme-m10c
