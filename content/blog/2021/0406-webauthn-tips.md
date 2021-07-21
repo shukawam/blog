@@ -63,7 +63,7 @@ FIDO2 をアプリケーションに組み込むときのちょっとした Tips
 Auth0 が作成しているデモサイトが**かなり**良かったのでその紹介です。([https://webauthn.me/](https://webauthn.me/))  
 FIDO2 の一連のフローが視覚的に分かりやすく整理されています。下手なデモを作成するよりはフローを紹介した後、このサイトに誘導する方が理解度は高まるかもしれない。
 
-![https://shukawam.guthub.io/blog/img/2021/0406/image04.png](https://shukawam.guthub.io/blog/img/2021/0406/image04.png)
+![https://shukawam.github.io/blog/img/2021/0406/image04.png](https://shukawam.github.io/blog/img/2021/0406/image04.png)
 
 # Considering
 
