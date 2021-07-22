@@ -4,7 +4,7 @@ author = "Shuhei, Kawamura"
 date = "2021-07-21"
 tags = ["ArgiCD"]
 categories = ["tech"]
-draft = "true"
+draft = "false"
 +++
 
 # 始めに
@@ -19,7 +19,7 @@ Argo CD の初期パスワード v1.9 以降 Kubernetes の `secret` に格納�
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
-が、確認したところ、`argocd-initial-admin-secret` なんて存在しないとエラーメッセージが出力された。
+が、確認したところ、`argocd-initial-admin-secret` なんて存在しないとエラーメッセージが出力された。(原因は不明です。ARM インスタンスだったから？)
 
 ```bash
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
