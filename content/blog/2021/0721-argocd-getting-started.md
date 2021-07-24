@@ -13,22 +13,25 @@ draft = "false"
 
 # 何が起きたのか？
 
-Argo CD の初期パスワード v1.9 以降 Kubernetes の `secret` に格納されているので確認するためには、kubectl で確認すればよい。
+新しく作った Kubernetes クラスタに Argo CD を導入しようと思ったところ、ドキュメントの Getting Started 通りには行かなかった。Argo CD の初期パスワードは、 v1.9 以降 Kubernetes の `secret` に格納されているので確認するためには、kubectl で確認すればよい。
 
 ```bash
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
-が、確認したところ、`argocd-initial-admin-secret` なんて存在しないとエラーメッセージが出力された。(原因は不明です。ARM インスタンスだったから？)
+が、確認したところ、`argocd-initial-admin-secret` なんて存在しないとエラーメッセージが出力された。(原因までは調査してないです。)
 
 ```bash
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 Error from server (NotFound): secrets "argocd-initial-admin-secret" not found
 ```
 
+関連 Issue あったのでリンク張っておきます。(2021/07/25 追記);  
+[https://github.com/argoproj/argo-cd/issues/6787](https://github.com/argoproj/argo-cd/issues/6787)
+
 # 解決策
 
-パスワードも Kubernetes の`secret`で管理されているのでそれを単純に変更すればよい。
+修正されるまでは、admin ユーザーのパスワードが Kubernetes の`secret`で管理されているのでそれを単純に変更すればよい。
 
 ```bash
 kubectl -n argocd patch secret argocd-secret \
