@@ -13,7 +13,7 @@ draft = "false"
 
 # 何が起きたのか？
 
-新しく作った Kubernetes クラスタに Argo CD を導入しようと思ったところ、ドキュメントの Getting Started 通りには行かなかった。Argo CD の初期パスワードは、 v1.9 以降 Kubernetes の `secret` に格納されているので確認するためには、kubectl で確認すればよい。
+新しく作った Kubernetes クラスタに Argo CD(v2.0.4) を導入しようと思ったところ、ドキュメントの Getting Started 通りには行かなかった。Argo CD の初期パスワードは、 v1.9 以降 Kubernetes の `secret` に格納されているので確認するためには、kubectl で確認すればよい。
 
 ```bash
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
