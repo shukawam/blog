@@ -4,7 +4,7 @@ author = "Shuhei, Kawamura"
 date = "2021-02-08"
 tags = ["java", "helidon", "helidon se"]
 categories = ["tech"]
-draft = "false"
+draft = "true"
 [[images]]
   src = "img/2021/0206/helidon.jpg"
   alt = "helidon.jpg"
