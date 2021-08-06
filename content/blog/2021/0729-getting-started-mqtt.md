@@ -4,7 +4,7 @@ author = "Shuhei, Kawamura"
 date = "2021-07-29"
 tags = ["mqtt", "kubernetes"]
 categories = ["tech"]
-draft = "false"
+draft = "true"
 +++
 
 # 始めに
