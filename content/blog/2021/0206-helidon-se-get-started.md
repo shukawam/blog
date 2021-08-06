@@ -2,13 +2,9 @@
 title = "Helidon SE Get Started"
 author = "Shuhei, Kawamura"
 date = "2021-02-07"
-tags = ["java", "helidon", "helidon se"]
+tags = ["java", "helidon"]
 categories = ["tech"]
 draft = "true"
-[[images]]
-  src = "img/2021/0206/helidon.jpg"
-  alt = "helidon.jpg"
-  stretch = "stretchH"
 +++
 
 # 始めに

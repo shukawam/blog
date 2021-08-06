@@ -5,10 +5,6 @@ date = "2020-09-11"
 tags = ["node", "nest"]
 categories = ["tech"]
 draft = "false"
-[[images]]
-  src = "img/2020/0911/nestjs.png"
-  alt = "Nest.js"
-  stretch = "stretchH"
 +++
 
 # 始めに

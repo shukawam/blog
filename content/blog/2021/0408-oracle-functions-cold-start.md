@@ -2,13 +2,9 @@
 title = "Oracle FunctionsのCold Start対策"
 author = "Shuhei, Kawamura"
 date = "2021-04-08"
-tags = ["OCI", "Functions", "Java"]
+tags = ["oci", "functions", "java"]
 categories = ["tech"]
 draft = "true"
-[[images]]
-  src = "img/2021/0408/89783130b95d3802.jpg"
-  alt = "89783130b95d3802.jpg"
-  stretch = "stretchH"
 +++
 
 # 始めに

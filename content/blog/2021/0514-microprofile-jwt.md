@@ -2,13 +2,9 @@
 title = "MicroProfile - JWT RBAC"
 author = "Shuhei, Kawamura"
 date = "2021-05-14"
-tags = ["MicroProfile", "Microservices", "Authentication", "Authorization", "Java", "Helidon"]
+tags = ["microProfile", "microservices", "authentication", "authorization", "java", "helidon"]
 categories = ["tech"]
 draft = "true"
-[[images]]
-  src = ""
-  alt = ""
-  stretch = "stretchH"
 +++
 
 # 始めに

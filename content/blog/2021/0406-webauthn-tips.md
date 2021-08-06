@@ -2,13 +2,9 @@
 title = "FIDO2 Tips & Considering"
 author = "Shuhei, Kawamura"
 date = "2021-04-06"
-tags = ["WebAuthn"]
+tags = ["webauthn", "fido2", "ctap"]
 categories = ["tech"]
 draft = "false"
-[[images]]
-  src = "img/2021/0406/fido2.png"
-  alt = "webauthn"
-  stretch = "stretchH"
 +++
 
 # 始めに

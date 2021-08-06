@@ -2,7 +2,7 @@
 title = "Argo CD - Getting Started でちょっとハマったこと"
 author = "Shuhei, Kawamura"
 date = "2021-07-21"
-tags = ["ArgiCD"]
+tags = ["argocd"]
 categories = ["tech"]
 draft = "false"
 +++

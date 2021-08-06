@@ -5,10 +5,6 @@ date = "2020-09-08"
 tags = ["hugo", "github", "github pages", "github actions"]
 categories = ["tech"]
 draft = "false"
-[[images]]
-  src = "img/2020/0909/hugo.png"
-  alt = "Desert Scene"
-  stretch = "stretchH"
 +++
 
 # 始めに

@@ -2,13 +2,9 @@
 title = "WebAuthn DeepDive #2 - Attestation"
 author = "Shuhei, Kawamura"
 date = "2021-04-05"
-tags = ["WebAuthn", "CTAP"]
+tags = ["webauthn", "ctap", "fido2"]
 categories = ["tech"]
 draft = "false"
-[[images]]
-  src = "img/2021/0323/webauthn1-960x480.png"
-  alt = "webauthn"
-  stretch = "stretchH"
 +++
 
 # 始めに

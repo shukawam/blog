@@ -2,13 +2,9 @@
 title = "Spring Native Getting Started"
 author = "Shuhei, Kawamura"
 date = "2021-03-22"
-tags = ["Java", "Spring", "GraalVM"]
+tags = ["java", "spring", "graalvm"]
 categories = ["tech"]
 draft = "false"
-[[images]]
-  src = "img/2021/0323/OG-Spring.png"
-  alt = ""
-  stretch = "stretchH"
 +++
 
 # 始めに

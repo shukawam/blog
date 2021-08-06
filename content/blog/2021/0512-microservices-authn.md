@@ -2,13 +2,9 @@
 title = "Microservicesの認証"
 author = "Shuhei, Kawamura"
 date = "2021-05-12"
-tags = ["Microservices", "Authentication", "Authorization", "Java", "MicroProfile"]
+tags = ["microservices", "authentication", "authorization", "java", "microprofile"]
 categories = ["tech"]
 draft = "true"
-[[images]]
-  src = ""
-  alt = ""
-  stretch = "stretchH"
 +++
 
 # 始めに
