@@ -1,5 +1,5 @@
 +++
-title = "Oracle Linux にApache Kakfaをインストールする"
+title = "Oracle Linux に Apache Kakfa をインストールする"
 author = "Shuhei, Kawamura"
 date = "2021-09-19"
 tags = ["kafka", "oracle linux"]
@@ -9,7 +9,7 @@ draft = "false"
 
 # 始めに
 
-積んでおいた[Kafka のオライリー本](https://www.oreilly.co.jp/books/9784873118499/)を読み始め、これから本格的に Kafka を勉強しようと思っています。それに際して、手軽に触れる環境があったほうがいいな、ということでさくっと Oracle Linux 上に構築します。
+積んでおいた [Kafka のオライリー本](https://www.oreilly.co.jp/books/9784873118499/)を読み始め、これから本格的に Kafka を勉強しようと思っています。それに際して、手軽に触れる環境があったほうがいいな、ということでさくっと Oracle Linux 上に構築します。
 
 # 手順
 
