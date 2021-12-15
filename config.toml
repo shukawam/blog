@@ -20,7 +20,7 @@ googleAnalytics = "G-4W6XCC73C8"
 [params]
   author = "Shuhei Kawamura"
   description = "I'm Solutions Engineer at Oracle Japan. These articles are just my opinions."
-  avatar = "/img/main/shukawam.jpg"
+  avatar = "/img/main/icon_v2.jpg"
   menu_item_separator = " - "
   [[params.social]]
     icon = "github"
