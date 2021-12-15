@@ -2,7 +2,7 @@
 title = "Chaos Mesh を OKE で試す"
 author = "Shuhei, Kawamura"
 date = "2021-12-15"
-tags = ["chaos mesh", "kubernetes", "chaos engineering"]
+tags = ["chaos-mesh", "kubernetes", "chaos-engineering"]
 categories = ["tech"]
 draft = "false"
 +++
