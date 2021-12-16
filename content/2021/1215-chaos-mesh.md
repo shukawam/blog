@@ -77,7 +77,7 @@ chaos-mesh-controller-manager   ClusterIP      10.96.208.200   <none>           
 
 実際に画面にアクセスしてみましょう。ブラウザで、`http://<public-ip>:2333`でアクセスできます。
 
-![image01](https://shukawam.github.io/blog/img/2021/1215/image01.png)
+![image01](https://shukawam.github.io/blog/img/2021/1215-chaos-mesh/image01.png)
 
 # 終わりに
 
