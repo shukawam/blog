@@ -9,7 +9,7 @@ draft = "false"
 
 # 始めに
 
-[WebAuthn](https://webauthn.io/) について学習したときのメモ。今回は、[WebAuthn](https://webauthn.io/)よりも CTAP の話が多めかも。
+[WebAuthn](https://webauthn.io/) について学習したときのメモです。今回は、[WebAuthn](https://webauthn.io/)よりも CTAP の話が多いと思います。
 
 # Deep Dive
 
