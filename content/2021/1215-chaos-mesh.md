@@ -4,7 +4,7 @@ author = "Shuhei, Kawamura"
 date = "2021-12-15"
 tags = ["chaos-mesh", "kubernetes", "chaos-engineering"]
 categories = ["tech"]
-draft = "false"
+draft = "true"
 +++
 
 # 始めに

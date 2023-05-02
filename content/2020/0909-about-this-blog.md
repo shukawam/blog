@@ -4,7 +4,7 @@ author = "Shuhei, Kawamura"
 date = "2020-09-08"
 tags = ["hugo", "github", "github pages", "github actions"]
 categories = ["tech"]
-draft = "false"
+draft = "true"
 +++
 
 # 始めに
