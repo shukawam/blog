@@ -4,7 +4,7 @@ author = "Shuhei, Kawamura"
 date = "2021-03-22"
 tags = ["java", "spring", "graalvm"]
 categories = ["tech"]
-draft = "false"
+draft = "true"
 +++
 
 # 始めに

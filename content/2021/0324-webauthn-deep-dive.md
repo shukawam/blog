@@ -4,7 +4,7 @@ author = "Shuhei, Kawamura"
 date = "2021-03-24"
 tags = ["webauthn", "fido2", "ctap"]
 categories = ["tech"]
-draft = "false"
+draft = "true"
 +++
 
 # 始めに

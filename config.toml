@@ -1,5 +1,5 @@
 baseURL = "https://shukawam.github.io/blog"
-title = "shukawam diary"
+title = "shukawam's restaurant"
 themesDir = "./themes/"
 theme = "my-hugo-theme-m10c"
 paginate = 8
@@ -10,6 +10,11 @@ googleAnalytics = "G-4W6XCC73C8"
     identifier = "home"
     name = "Home"
     url = "/"
+    weight = 1
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
     weight = 1
   [[menu.main]]
     identifier = "tags"
