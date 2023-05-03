@@ -24,8 +24,8 @@ googleAnalytics = "G-4W6XCC73C8"
 
 [params]
   author = "Shuhei Kawamura"
-  description = "For diary."
-  avatar = "/img/main/icon_v1.JPG"
+  description = "Restaurant"
+  avatar = "/img/main/beauty_1683099530325.jpg"
   menu_item_separator = " / "
   [[params.social]]
     icon = "github"
